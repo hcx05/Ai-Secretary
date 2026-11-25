@@ -56,7 +56,8 @@ def fetch_source(src: dict, http, now: datetime, state: dict, token: str | None,
             pub = parse_iso(it.published)
             if pub is None or pub >= cutoff:
                 kept.append(it)
-        return {"type": typ, "ok": True, "count": len(kept), "error": None, "items": kept}
+        warn = "partial: " + "; ".join(ctx.warnings)[:300] if ctx.warnings else None
+        return {"type": typ, "ok": True, "count": len(kept), "error": warn, "items": kept}
     except Exception as e:  # noqa: BLE001 - one bad source must not break the run
         return {"type": typ, "ok": False, "count": 0, "error": f"{type(e).__name__}: {str(e)[:200]}", "items": []}
 

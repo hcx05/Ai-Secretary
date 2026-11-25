@@ -54,6 +54,7 @@ class Context:
     now: datetime
     state: dict = field(default_factory=dict)
     github_token: str | None = None
+    warnings: list = field(default_factory=list)  # partial failures inside an otherwise ok source
 
     def get(self, url, params=None, headers=None, key=None) -> Resp:
         return self.http(self.src_id, url, params, headers, key)

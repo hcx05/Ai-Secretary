@@ -113,3 +113,14 @@ def test_dry_run_cli_writes_only_to_temp(capsys, tmp_path, monkeypatch):
     assert "sources ok" in out and "FAILED broken" in out
     assert (tmp_path / "o/shortlist/2026-11-25.jsonl").exists()
     assert sorted(p.name for p in (root / "data").iterdir()) == before
+
+
+def test_partial_failure_is_reported_but_source_stays_ok():
+    from collector.http import Resp
+
+    def http(sid, url, params=None, headers=None, key=None):
+        if key == "releases":
+            raise ConnectionError("blocked")
+        return Resp(b'{"items": []}')
+    out = fetch_source({"id": "g", "type": "github", "topics": ["llm"], "watch_releases": ["a/b"]}, http, NOW, {}, None, 14)
+    assert out["ok"] and out["error"].startswith("partial:") and "a/b" in out["error"]

@@ -20,4 +20,5 @@ def fetch(src, ctx):
             errors.append(f"r/{sub}: {e}")
     if subs and len(errors) == len(subs):
         raise RuntimeError("; ".join(errors[:3]))
+    ctx.warnings.extend(e[:80] for e in errors[:3])
     return items

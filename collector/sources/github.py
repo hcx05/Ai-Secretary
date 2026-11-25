@@ -46,4 +46,5 @@ def fetch(src, ctx):
             errors.append(f"releases {repo}: {e}")
     if calls and len(errors) == calls:
         raise RuntimeError("; ".join(errors[:3]))
+    ctx.warnings.extend(e[:80] for e in errors[:3])
     return items
