@@ -1,6 +1,14 @@
 {
  "pw_anthropic_pricing": {
-  "checked": "2026-11-25T18:29:36Z",
+  "checked": "2026-11-25T18:32:03Z",
   "hash": "44874d859f9f2353"
+ },
+ "pw_github_student_pack": {
+  "checked": "2026-11-25T18:32:03Z",
+  "hash": "efd00fa4b4bcd535"
+ },
+ "pw_google_ai_plans": {
+  "checked": "2026-11-25T18:32:03Z",
+  "hash": "76117f8c843a0eb7"
  }
 }

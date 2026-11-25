@@ -1,27 +1,10 @@
 {
- "generated": "2026-11-25T18:29:36Z",
+ "generated": "2026-11-25T18:32:03Z",
  "date": "2026-11-25",
- "sources_ok": 3,
+ "sources_ok": 20,
  "sources_total": 21,
  "failed": [
-  "arxiv_ai",
-  "arxiv_sec_hci",
-  "cisa_kev",
-  "deepmind_blog",
-  "embracethered",
-  "github_changelog",
-  "google_ai_blog",
-  "hn",
-  "huggingface_blog",
-  "krebs",
-  "openai_news",
-  "portswigger_research",
-  "project_zero",
-  "pw_github_student_pack",
-  "pw_google_ai_plans",
-  "reddit",
-  "simonwillison",
-  "trailofbits"
+  "reddit"
  ],
  "known_gaps": [
   "X (Twitter)",
@@ -29,15 +12,15 @@
   "需登入的社群與付費牆內容"
  ],
  "totals": {
-  "fetched": 42,
-  "input": 42,
+  "fetched": 294,
+  "input": 325,
   "seen": 0,
   "recent": 0,
-  "dup_url": 11,
-  "dup_title": 0,
+  "dup_url": 49,
+  "dup_title": 9,
   "seen_similar": 0,
-  "output": 31,
-  "shortlist": 31
+  "output": 267,
+  "shortlist": 40
  },
  "sources": {
   "anthropic_news": {
@@ -45,202 +28,219 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-25T18:29:36Z",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:32:03Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
   "openai_news": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='openai.com', port=443): Max retries exceeded with url: /news/rss.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (age",
+   "ok": true,
+   "count": 30,
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "deepmind_blog": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='deepmind.google', port=443): Max retries exceeded with url: /blog/rss.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden",
+   "ok": true,
+   "count": 5,
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "google_ai_blog": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='blog.google', port=443): Max retries exceeded with url: /technology/ai/rss/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidd",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 8,
+   "error": null,
+   "shortlisted": 1,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "huggingface_blog": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /blog/feed.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 15,
+   "error": null,
+   "shortlisted": 1,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "github_changelog": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='github.blog', port=443): Max retries exceeded with url: /changelog/feed/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden ",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 10,
+   "error": null,
+   "shortlisted": 1,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "simonwillison": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='simonwillison.net', port=443): Max retries exceeded with url: /atom/everything/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 For",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 30,
+   "error": null,
+   "shortlisted": 3,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "project_zero": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='googleprojectzero.blogspot.com', port=443): Max retries exceeded with url: /feeds/posts/default (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection",
+   "ok": true,
+   "count": 2,
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "portswigger_research": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='portswigger.net', port=443): Max retries exceeded with url: /research/rss (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden",
+   "ok": true,
+   "count": 1,
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "trailofbits": {
    "type": "rss",
-   "ok": false,
+   "ok": true,
    "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='blog.trailofbits.com', port=443): Max retries exceeded with url: /feed/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (",
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "embracethered": {
    "type": "rss",
-   "ok": false,
+   "ok": true,
    "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='embracethered.com', port=443): Max retries exceeded with url: /blog/index.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbi",
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "krebs": {
    "type": "rss",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='krebsonsecurity.com', port=443): Max retries exceeded with url: /feed/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (a",
+   "ok": true,
+   "count": 2,
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "cisa_kev": {
    "type": "cisa_kev",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='www.cisa.gov', port=443): Max retries exceeded with url: /sites/default/files/feeds/known_exploited_vulnerabilities.json (Caused by ProxyError('Unable to connect to proxy', O",
+   "ok": true,
+   "count": 10,
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "hn": {
    "type": "hn",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='hn.algolia.com', port=443): Max retries exceeded with url: /api/v1/search_by_date?tags=story&hitsPerPage=60&numericFilters=created_at_i%3E1795544976%2Cpoints%3E%3D120 (Caused",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 26,
+   "error": null,
+   "shortlisted": 5,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "arxiv_ai": {
    "type": "arxiv",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.AI+OR+cat%3Acs.CL&sortBy=submittedDate&sortOrder=descending&max_results=60 (Caus",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 60,
+   "error": null,
+   "shortlisted": 2,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "arxiv_sec_hci": {
    "type": "arxiv",
-   "ok": false,
-   "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CR+OR+cat%3Acs.HC&sortBy=submittedDate&sortOrder=descending&max_results=40 (Caus",
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "ok": true,
+   "count": 40,
+   "error": null,
+   "shortlisted": 4,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "github_topics": {
    "type": "github",
    "ok": true,
-   "count": 40,
-   "error": "partial: releases anthropics/claude-code: 403 Client Error: Forbidden for url: https://ap; releases anthropics/claude-agent-sdk-python: 403 Client Error: Forbidden for url; releases google-gemini/gemini-cli: 403 Client Error: Forbidden for url: https://",
-   "shortlisted": 29,
-   "fetched": "2026-11-25T18:29:36Z",
+   "count": 53,
+   "error": null,
+   "shortlisted": 23,
+   "fetched": "2026-11-25T18:32:03Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -248,24 +248,26 @@
    "type": "reddit",
    "ok": false,
    "count": 0,
-   "error": "RuntimeError: r/ClaudeAI: HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /r/ClaudeAI/top.json?t=day&limit=20 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel",
+   "error": "RuntimeError: r/ClaudeAI: 403 Client Error: Blocked for url: https://www.reddit.com/r/ClaudeAI/top.json?t=day&limit=20; r/LocalLLaMA: 403 Client Error: Blocked for url: https://www.reddit.com/r/LocalLLaMA/top.json?",
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
+   "fetched": "2026-11-25T18:32:03Z",
    "success_rate": 0.0,
    "history": [
+    false,
     false
    ]
   },
   "pw_github_student_pack": {
    "type": "pagewatch",
-   "ok": false,
+   "ok": true,
    "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='education.github.com', port=443): Max retries exceeded with url: /pack (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (a",
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   },
   "pw_anthropic_pricing": {
@@ -274,22 +276,24 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
+   "fetched": "2026-11-25T18:32:03Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
   "pw_google_ai_plans": {
    "type": "pagewatch",
-   "ok": false,
+   "ok": true,
    "count": 0,
-   "error": "ProxyError: HTTPSConnectionPool(host='one.google.com', port=443): Max retries exceeded with url: /about/google-ai-plans/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 ",
+   "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:29:36Z",
-   "success_rate": 0.0,
+   "fetched": "2026-11-25T18:32:03Z",
+   "success_rate": 0.5,
    "history": [
-    false
+    false,
+    true
    ]
   }
  }
