@@ -15,3 +15,18 @@
 
 ## D-003 Repo(2026-11-25,使用者選定)
 - 名稱 `hcx05/Ai-Secretary`,私有。
+
+## D-004 推送通道:Telegram(2026-11-25,使用者選定)
+- **決定**:簡報推上 `main` → `notify` workflow 送 Telegram;回覆由 `collect` 每 6 小時收進 `memory/inbox.jsonl`,daily 處理。只收 `TELEGRAM_CHAT_ID` 的訊息。
+- **理由**:Telegram token 與 Discord webhook 都在 URL 裡,雲端代填憑證只支援 header,所以由 Actions 用 repo secrets 發送。
+- **待辦**:使用者設 `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID`(見 `TELEGRAM.md`)。
+
+## D-005 排程跑在常駐 session(2026-11-25,上線測試後改)
+- **原計畫**:每次排程開新 session。**實測**:新 session 拿不到本 repo 的寫入權限(push 403、`add_repo` 不可用),簡報推不上去。
+- **改為**:建一個帶本 repo 的常駐 session,每日與每週排程都叫醒它。實測 `daily: 2026-11-25` 已推上 `main`,`notify` 也觸發成功。
+- **代價**:對話會累積,靠自動壓縮控制;每次執行都以 repo 檔案為準,不依賴對話內容。這種排程不能開 Claude App 推播,推播改靠 Telegram。
+- **重開條件**:把本 repo 加進雲端環境的 Repositories 後,可改回每次開新 session(較省 token、可開 App 推播)。
+
+## 已知限制(2026-11-25)
+- 雲端環境網路受限:判斷層讀不到 arxiv.org、simonwillison.net 等原文,驗證只能到「單一來源」。放寬環境網路(要使用者在設定中核准)後改善。
+- Reddit 在 GitHub Actions 上被擋(其餘 20 個來源正常)。
