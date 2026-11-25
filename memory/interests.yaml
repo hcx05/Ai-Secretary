@@ -1,0 +1,72 @@
+# 預評分用的主題權重。collector 讀取;weekly 與回饋流程以小步調整(python -m secretary interests ...)。
+# weight: 越大越常進短名單;負值=少推(只由 weekly 手動設定)。回饋調整限制在 [0.5, 8],單次最多 ±0.5,不會歸零。
+# keywords: 英文用詞界比對(不分大小寫),中文用子字串。
+topics:
+  ai_models:
+    weight: 2.5
+    desc: 前沿模型發布與實際表現
+    keywords: [claude, gemini, gpt, openai, anthropic, llama, qwen, deepseek, mistral, benchmark, open-weight, open-source model, 模型發布, 新模型, 開源模型, 基準測試]
+  ai_agents:
+    weight: 3.0
+    desc: Agent、長期記憶、Skill、Context Engineering
+    keywords: [agent, agents, agentic, mcp, subagent, tool use, long-term memory, context engineering, prompt engineering, skills, 智能體, 代理, 長期記憶, 上下文工程, 提示詞]
+  cli_ai_tools:
+    weight: 2.5
+    desc: CLI AI 工具與工作流
+    keywords: [claude code, codex, gemini cli, aider, opencode, cli, terminal, 命令列, 終端機]
+  multimodal:
+    weight: 1.5
+    desc: 多模態、即時語音、視覺、影片理解
+    keywords: [multimodal, realtime voice, speech, vision, video understanding, 多模態, 即時語音, 語音, 視覺, 影片理解]
+  deals:
+    weight: 2.5
+    desc: AI 訂閱與學生優惠、免費額度(需對照已有訂閱)
+    keywords: [student, discount, free tier, free credits, pricing, subscription, pro plan, student developer pack, 優惠, 學生, 免費額度, 訂閱, 方案, 降價]
+  free_resources:
+    weight: 1.5
+    desc: 免費 API、研究額度、雲端運算
+    keywords: [free api, free gpu, research credits, colab, free compute, 免費 API, 免費 GPU, 研究資源]
+  security_research:
+    weight: 2.5
+    desc: 漏洞與攻防研究、滲透測試、紅隊
+    keywords: [vulnerability, cve, exploit, zero-day, 0day, pentest, penetration testing, red team, kev, 漏洞, 滲透測試, 紅隊, 資安]
+  ai_security:
+    weight: 3.0
+    desc: AI 系統與 Agent 的安全
+    keywords: [prompt injection, jailbreak, llm security, agent security, mcp security, ai safety, 提示注入, 越獄, AI 安全]
+  ctf_labs:
+    weight: 1.5
+    desc: CTF 與授權測試環境
+    keywords: [ctf, hack the box, tryhackme, lab, cyber range, 授權測試, 實驗室]
+  novel_writing:
+    weight: 3.0
+    desc: 長篇小說創作與一致性(優先:幫助完稿)
+    keywords: [novel, long-form fiction, creative writing, worldbuilding, narrative, story consistency, fiction, 小說, 長篇, 寫作, 敘事, 世界觀, 人物塑造]
+  wuxia_art:
+    weight: 1.5
+    desc: 古風、武俠、水墨、國漫
+    keywords: [wuxia, ink painting, chinese ink, donghua, guofeng, 武俠, 古風, 水墨, 國漫]
+  gen_media:
+    weight: 1.5
+    desc: AI 插畫、動畫、配音、影視生成
+    keywords: [text-to-video, ai video, image generation, tts, voice cloning, animation, 影片生成, 插畫, 動畫, 配音]
+  immersive_future:
+    weight: 1.0
+    desc: VR、腦機介面、清醒夢、互動敘事
+    keywords: [virtual reality, vr, brain-computer interface, bci, lucid dream, interactive narrative, immersive, 虛擬實境, 腦機介面, 清醒夢, 沉浸式, 互動敘事]
+  ai_education:
+    weight: 1.0
+    desc: AI 教育與個人化家教
+    keywords: [ai tutor, personalized learning, education, 家教, AI 教育, 個人化學習]
+  linux_dev:
+    weight: 1.5
+    desc: Linux、Neovim、dotfiles 等日常環境
+    keywords: [linux, neovim, nvim, dotfiles, tmux, wayland, github]
+  life_efficiency:
+    weight: 1.0
+    desc: 提升生活品質、省時省錢的工具與學習資源
+    keywords: [productivity, automation, learning resource, 效率, 自動化, 學習資源]
+  low_maintenance_income:
+    weight: 0.5
+    desc: 低維護成本的收入機會(刻意低權重:不預設變現動機)
+    keywords: [passive income, side income, 被動收入]

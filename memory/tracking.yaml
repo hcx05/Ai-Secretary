@@ -1,0 +1,12 @@
+# 長期追蹤項目。判斷層每天檢查 next_check 已到期的項目;只有狀態有實質變化才進簡報。
+# 欄位: id, subject, trigger(什麼變化才算), source(pagewatch 來源 id 或 URL), last_status, last_checked, next_check, added, expires(可省)
+# 範例(註解):
+# - id: gemini-student-offer
+#   subject: Google AI Pro 學生優惠是否延長
+#   trigger: 方案頁出現新的學生價或截止日
+#   source: pw_google_ai_plans
+#   last_status: 無變化
+#   last_checked: 2026-11-25
+#   next_check: 2026-12-02
+#   added: 2026-11-25
+items: []
