@@ -5,4 +5,4 @@ verify_fetch_max: 8        # 驗證時網頁讀取總次數
 deep_dive_max: 2           # 深挖則數
 deep_dive_fetch_max: 5     # 每則深挖的網頁讀取
 brief_max_items: 5         # 簡報主要情報
-model: sonnet              # 排程模型
+schedule_model: 輕量模型(見 docs/PLAN.md §5,於排程設定中指定)
