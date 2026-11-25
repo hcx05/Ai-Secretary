@@ -1,0 +1,10 @@
+topics:
+  ai_agents:
+    weight: 3.0
+    keywords: [agent, agents, claude code, mcp, 智能體]
+  security:
+    weight: 2.0
+    keywords: [vulnerability, cve, exploit, 漏洞]
+  sports:
+    weight: -2.0
+    keywords: [football, 足球]

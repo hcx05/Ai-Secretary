@@ -1,0 +1,8 @@
+# 判斷層預算(硬上限)。每次排程 session 開始先讀;超過寧可少做,並在簡報寫「今日預算用盡,未深挖 X」。
+shortlist_max: 40          # 短名單筆數
+summary_max_chars: 300     # 每則摘要長度
+verify_fetch_max: 8        # 驗證時網頁讀取總次數
+deep_dive_max: 2           # 深挖則數
+deep_dive_fetch_max: 5     # 每則深挖的網頁讀取
+brief_max_items: 5         # 簡報主要情報
+model: sonnet              # 排程模型

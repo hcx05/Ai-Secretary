@@ -1,0 +1,12 @@
+known_gaps: [X (Twitter), Discord]
+sources:
+  - {id: rss_a, type: rss, prior: 1.0, tags: [ai], url: "https://example.org/a.xml", why: fixture}
+  - {id: rss_b, type: rss, prior: 0.5, tags: [ai], url: "https://example.org/b.xml", why: fixture}
+  - {id: hn, type: hn, prior: 0.5, why: fixture}
+  - {id: gh, type: github, topics: [llm], watch_releases: [anthropics/claude-code], why: fixture}
+  - {id: reddit, type: reddit, subs: [ClaudeAI], min_score: 50, why: fixture}
+  - {id: arxiv_sec, type: arxiv, categories: [cs.CR], max_age_days: 2, why: fixture}
+  - {id: kev, type: cisa_kev, max_age_days: 7, why: fixture}
+  - {id: pw, type: pagewatch, url: "https://example.org/pack", name: Student Pack, why: fixture}
+  - {id: broken, type: rss, url: "https://example.org/missing.xml", why: "no fixture file: must fail alone"}
+  - {id: off, type: rss, enabled: false, url: "https://example.org/off.xml", why: disabled}

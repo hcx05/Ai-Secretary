@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<entry><id>http://arxiv.org/abs/2611.00001v2</id><title>Prompt   injection attacks on agent
+ systems</title><link href="http://arxiv.org/abs/2611.00001v2" rel="alternate"/>
+<summary>We study agent vulnerability to injected instructions.</summary>
+<published>2026-11-24T18:00:00Z</published><category term="cs.CR"/></entry>
+<entry><id>http://arxiv.org/abs/2001.00002v1</id><title>Old paper</title><link href="http://arxiv.org/abs/2001.00002v1" rel="alternate"/>
+<summary>old</summary><published>2020-01-01T00:00:00Z</published></entry>
+</feed>

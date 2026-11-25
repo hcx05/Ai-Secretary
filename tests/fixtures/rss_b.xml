@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>B</title>
+<item><title>Claude Code 3.0 ships with background agents (Anthropic)</title>
+<link>http://example.com/news/claude-code-3/</link><description>Same story, other outlet.</description>
+<pubDate>Tue, 24 Nov 2026 11:00:00 GMT</pubDate></item>
+<item><title>Gardening tips for November</title>
+<link>https://example.net/garden</link><description>Plants.</description>
+<pubDate>Mon, 23 Nov 2026 11:00:00 GMT</pubDate></item>
+<item><title>A recipe for noodle soup</title>
+<link>https://example.net/soup</link><description>Noodles.</description>
+<pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate></item>
+</channel></rss>

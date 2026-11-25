@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>A</title>
+<item><title>Anthropic ships Claude Code 3.0 with background agents</title>
+<link>https://www.example.com/news/claude-code-3?utm_source=rss&amp;utm_medium=feed#top</link>
+<description>&lt;p&gt;Claude Code adds &lt;b&gt;background agents&lt;/b&gt; and MCP improvements.&lt;/p&gt;</description>
+<pubDate>Tue, 24 Nov 2026 10:00:00 GMT</pubDate></item>
+<item><title>New exploit chain targets agent frameworks</title>
+<link>https://example.com/sec/agent-exploit/</link><description>Researchers disclose a vulnerability in agent tooling.</description>
+<pubDate>Tue, 24 Nov 2026 20:00:00 GMT</pubDate></item>
+<item><title>Local football club wins cup</title>
+<link>https://example.com/sports/cup</link><description>football football</description>
+<pubDate>Tue, 24 Nov 2026 08:00:00 GMT</pubDate></item>
+<item><title>Ancient post from last year</title>
+<link>https://example.com/old</link><description>agent</description>
+<pubDate>Mon, 01 Jan 2024 08:00:00 GMT</pubDate></item>
+</channel></rss>
