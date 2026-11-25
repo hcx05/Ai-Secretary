@@ -1,0 +1,44 @@
+name: notify
+
+# Push each new daily brief to Telegram. No-op until the secrets are set.
+on:
+  push:
+    branches: ["**"]
+    paths: ["briefs/*.md"]
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: "Path of the brief to send (default: newest)"
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Send brief(s)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          INPUT_BRIEF: ${{ github.event.inputs.brief }}
+        run: |
+          if [ -n "$INPUT_BRIEF" ]; then
+            files="$INPUT_BRIEF"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'briefs/*.md' || true)
+          else
+            files=$(ls -1 briefs/*.md 2>/dev/null | sort | tail -n 1)
+          fi
+          for f in $files; do
+            [ -f "$f" ] && python -m notify.telegram send "$f"
+          done

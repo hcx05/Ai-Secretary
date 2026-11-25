@@ -1,6 +1,6 @@
 # 回饋與追問處理
 
-使用者在推播開出的 session 用自然語言回覆。**使用者不需要用固定格式**;你負責判讀。簡報裡的編號對應當天 `briefs/` 與短名單。
+使用者在推播開出的 session,或在 Telegram(收進 `memory/inbox.jsonl`,由 daily 處理)用自然語言回覆。**使用者不需要用固定格式**;你負責判讀。簡報裡的編號對應當天 `briefs/` 與短名單。
 
 ## 判讀
 | 使用者說 | verdict | 動作 |
@@ -21,7 +21,7 @@
 2. 寫回饋並調權(一次完成):
    `python -m secretary feedback --verdict <v> --quote "<使用者原話>" --reason "<你判讀的原因>" --item <id> --source <source_id> --topics a,b`
 3. 若使用者要的是動作(深挖、追蹤、比較替代方案),照做;深挖受 `config/budget.yaml` 限制。
-4. `git commit` 並回報:記了什麼、哪個權重從多少變成多少。
+4. `git commit`、`git push origin HEAD:main`,並回報:記了什麼、哪個權重從多少變成多少。
 
 ## 原則
 - **單次負評只小幅降權,不歸零,不永久封鎖。** 連續多次同向才算趨勢,由 weekly 處理。
