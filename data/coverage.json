@@ -1,0 +1,296 @@
+{
+ "generated": "2026-11-25T18:29:36Z",
+ "date": "2026-11-25",
+ "sources_ok": 3,
+ "sources_total": 21,
+ "failed": [
+  "arxiv_ai",
+  "arxiv_sec_hci",
+  "cisa_kev",
+  "deepmind_blog",
+  "embracethered",
+  "github_changelog",
+  "google_ai_blog",
+  "hn",
+  "huggingface_blog",
+  "krebs",
+  "openai_news",
+  "portswigger_research",
+  "project_zero",
+  "pw_github_student_pack",
+  "pw_google_ai_plans",
+  "reddit",
+  "simonwillison",
+  "trailofbits"
+ ],
+ "known_gaps": [
+  "X (Twitter)",
+  "Discord",
+  "需登入的社群與付費牆內容"
+ ],
+ "totals": {
+  "fetched": 42,
+  "input": 42,
+  "seen": 0,
+  "recent": 0,
+  "dup_url": 11,
+  "dup_title": 0,
+  "seen_similar": 0,
+  "output": 31,
+  "shortlist": 31
+ },
+ "sources": {
+  "anthropic_news": {
+   "type": "rss",
+   "ok": true,
+   "count": 2,
+   "error": null,
+   "shortlisted": 2,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "openai_news": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='openai.com', port=443): Max retries exceeded with url: /news/rss.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (age",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "deepmind_blog": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='deepmind.google', port=443): Max retries exceeded with url: /blog/rss.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "google_ai_blog": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='blog.google', port=443): Max retries exceeded with url: /technology/ai/rss/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidd",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "huggingface_blog": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /blog/feed.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "github_changelog": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='github.blog', port=443): Max retries exceeded with url: /changelog/feed/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden ",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "simonwillison": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='simonwillison.net', port=443): Max retries exceeded with url: /atom/everything/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 For",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "project_zero": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='googleprojectzero.blogspot.com', port=443): Max retries exceeded with url: /feeds/posts/default (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "portswigger_research": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='portswigger.net', port=443): Max retries exceeded with url: /research/rss (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "trailofbits": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='blog.trailofbits.com', port=443): Max retries exceeded with url: /feed/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "embracethered": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='embracethered.com', port=443): Max retries exceeded with url: /blog/index.xml (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbi",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "krebs": {
+   "type": "rss",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='krebsonsecurity.com', port=443): Max retries exceeded with url: /feed/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (a",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "cisa_kev": {
+   "type": "cisa_kev",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='www.cisa.gov', port=443): Max retries exceeded with url: /sites/default/files/feeds/known_exploited_vulnerabilities.json (Caused by ProxyError('Unable to connect to proxy', O",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "hn": {
+   "type": "hn",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='hn.algolia.com', port=443): Max retries exceeded with url: /api/v1/search_by_date?tags=story&hitsPerPage=60&numericFilters=created_at_i%3E1795544976%2Cpoints%3E%3D120 (Caused",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "arxiv_ai": {
+   "type": "arxiv",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.AI+OR+cat%3Acs.CL&sortBy=submittedDate&sortOrder=descending&max_results=60 (Caus",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "arxiv_sec_hci": {
+   "type": "arxiv",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='export.arxiv.org', port=443): Max retries exceeded with url: /api/query?search_query=cat%3Acs.CR+OR+cat%3Acs.HC&sortBy=submittedDate&sortOrder=descending&max_results=40 (Caus",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "github_topics": {
+   "type": "github",
+   "ok": true,
+   "count": 40,
+   "error": "partial: releases anthropics/claude-code: 403 Client Error: Forbidden for url: https://ap; releases anthropics/claude-agent-sdk-python: 403 Client Error: Forbidden for url; releases google-gemini/gemini-cli: 403 Client Error: Forbidden for url: https://",
+   "shortlisted": 29,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "reddit": {
+   "type": "reddit",
+   "ok": false,
+   "count": 0,
+   "error": "RuntimeError: r/ClaudeAI: HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /r/ClaudeAI/top.json?t=day&limit=20 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "pw_github_student_pack": {
+   "type": "pagewatch",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='education.github.com', port=443): Max retries exceeded with url: /pack (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden (a",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  },
+  "pw_anthropic_pricing": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_google_ai_plans": {
+   "type": "pagewatch",
+   "ok": false,
+   "count": 0,
+   "error": "ProxyError: HTTPSConnectionPool(host='one.google.com', port=443): Max retries exceeded with url: /about/google-ai-plans/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 ",
+   "shortlisted": 0,
+   "fetched": "2026-11-25T18:29:36Z",
+   "success_rate": 0.0,
+   "history": [
+    false
+   ]
+  }
+ }
+}
