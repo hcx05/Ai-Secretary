@@ -45,6 +45,7 @@
 
 ## 簡報偏好
 - 優惠不限學生;白嫖資源(Google Cloud 等雲端免費額度、免費 API、試用)有新資訊都要知道 [確認]
+- AI 大模型用量白嫖要知道:能免費用 Claude、GPT、Gemini 的方案與額度(如 Copilot、Kiro、Gemini CLI、API 免費層),包括 OpenAI/ChatGPT [確認]
 - HTB、TryHackMe、PortSwigger、OffSec 等資安平台有活動、優惠、重要更新都要通知 [確認]
 - 要跟上最先進的 AI 工作流;開源好用的 skill、plugin 與其他開源程式要知道 [確認]
 - 每則不要「為什麼重要/與你有關」標籤、不要「建議行動」、不要「與你一致/無需行動」這類評語;可信度只標高/中/低 [確認]

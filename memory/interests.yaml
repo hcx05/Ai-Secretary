@@ -30,6 +30,10 @@ topics:
     weight: 3.0
     desc: 白嫖資源:免費 API、雲端額度(Google Cloud 等)、研究額度、免費運算
     keywords: [free api, free gpu, research credits, colab, free compute, google cloud, gcp, aws free tier, azure credits, oracle cloud free tier, cloud credits, startup credits, always free, 免費 API, 免費 GPU, 研究資源, 雲端額度, 免費資源]
+  ai_free_usage:
+    weight: 3.0
+    desc: 大模型免費用量白嫖:免費額度、加倍用量、免費 credits、可用 Claude/GPT/Gemini 的免費方案
+    keywords: [free tier, free plan, free credits, api credits, bonus credits, free usage, 2x usage, double usage, rate limit, usage limits, copilot free, kiro, gemini cli, openrouter, ai studio, 免費額度, 用量加倍, 額度, 白嫖]
   security_platforms:
     weight: 3.0
     desc: 資安學習平台(HTB、TryHackMe、PortSwigger、OffSec 等)的活動、優惠、重要更新

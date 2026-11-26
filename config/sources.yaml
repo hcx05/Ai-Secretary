@@ -103,6 +103,22 @@ sources:
   - {id: pw_offsec_home, type: pagewatch, render: true, enabled: true, prior: 1.2, tags: [security, platform],
      url: "https://www.offsec.com", name: "OffSec",
      why: "首頁促銷橫幅(折扣、認證組合)"}
+  # --- AI 大模型免費用量與方案(2026-11-26 使用者要求)---
+  - {id: pw_chatgpt_pricing, type: pagewatch, render: true, enabled: true, prior: 1.2, tags: [ai, deals],
+     url: "https://openai.com/chatgpt/pricing/", name: "ChatGPT 方案",
+     why: "ChatGPT 免費版額度、加倍用量等限時方案"}
+  - {id: pw_openai_api_pricing, type: pagewatch, enabled: true, prior: 1.0, tags: [ai, deals],
+     url: "https://openai.com/api/pricing/", name: "OpenAI API 價格", why: "API 價格與免費額度變動"}
+  - {id: pw_copilot_plans, type: pagewatch, render: true, enabled: true, prior: 1.5, tags: [ai, deals, free],
+     url: "https://github.com/features/copilot/plans", name: "GitHub Copilot 方案",
+     why: "Copilot Free/學生方案可用的 Claude、GPT 模型與額度、限時折扣"}
+  - {id: pw_kiro_pricing, type: pagewatch, enabled: true, prior: 1.2, tags: [ai, deals, free],
+     url: "https://kiro.dev/pricing/", name: "Kiro 方案", why: "AWS 的 Kiro 免費額度可用 Claude"}
+  - {id: pw_gemini_api_pricing, type: pagewatch, render: true, enabled: true, prior: 1.0, tags: [ai, deals, free],
+     url: "https://ai.google.dev/gemini-api/docs/pricing", name: "Gemini API 價格", why: "Gemini API 免費層額度"}
+  - {id: pw_ai_coding_deals, type: pagewatch, enabled: true, prior: 1.0, tags: [ai, deals, free, mirror],
+     url: "https://raw.githubusercontent.com/codertesla/ai-coding-deals/main/README.md", name: "AI coding 省錢清單",
+     why: "社群維護的 AI 工具免費額度與折扣清單,用來發現新管道;推送前回官網驗證", note: "第三方整理"}
   # --- 免費資源(不限學生)---
   - {id: pw_gcp_free, type: pagewatch, enabled: true, prior: 1.5, tags: [deals, free],
      url: "https://cloud.google.com/free", name: "Google Cloud free program",

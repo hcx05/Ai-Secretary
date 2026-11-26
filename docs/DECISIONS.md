@@ -76,3 +76,9 @@
 - **M4**:Telegram 連結文字若像網址卻指向別處,改顯示真實網址。
 - **L1–L8**:來源 id 限 `[a-z0-9_]`;inbox 只收私聊且寄件者是本人,轉傳標 `forwarded`;外部 tag 加 `x:` 前綴;Telegram 錯誤訊息不含 token;notify 手動輸入只接受 `briefs/YYYY-MM-DD.md`;下載上限 10MB / 60 秒;限時正規表示式數字限 4 位;feedback 原話用 heredoc 傳入。
 - **未做**:Telegram 與 collect 仍執行 repo 內程式(H1 的根本解需要分支保護或把 secrets 移出 repo 程式可及範圍)。
+
+## D-013 AI 大模型免費用量(2026-11-26,使用者要求)
+- **來源**:ChatGPT 方案、OpenAI API 價格、GitHub Copilot 方案、Kiro 方案、Gemini API 價格(官方頁,頁面變動偵測);codertesla/ai-coding-deals(第三方清單,只用來發現,推送前回官網驗證)。
+- **規則**:免費或加倍用量、免費 credits 一律推,不因已有 Claude Pro / Google AI Pro 而略過;限時關鍵字加入 2x usage、免費額度等。
+- **pagewatch**:雜湊變了但沒有任何字詞變動時不算變更(ChatGPT 價格頁每次載入雜湊不同)。
+- 3C 與顯卡優惠待使用者決定地區與品項。

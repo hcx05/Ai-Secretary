@@ -46,6 +46,8 @@ def fetch(src, ctx):
     ctx.state[src["id"]] = {"hash": digest, "checked": now, "text": text[:KEEP_CHARS]}
     if old is None or old.get("hash") == digest:
         return []
+    if old.get("text") and not diff_summary(old["text"], text[:KEEP_CHARS]):
+        return []  # hash moved but no word changed (whitespace, hidden markup): not news
     summary = diff_summary(old.get("text", ""), text[:KEEP_CHARS]) or "(no previous copy stored; diff unavailable) " + text
     return [make_item(src["id"], src["url"], f"Page changed: {src.get('name', src['url'])}",
                       summary=summary, published=now, fetched=now, tags=["pagewatch"] + src.get("tags", []),

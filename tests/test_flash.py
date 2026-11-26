@@ -32,3 +32,9 @@ def test_rss_item_and_format_escapes():
     out = find_alerts([rss], set(), NOW)
     msg = format_alert(out[0], {"pw_hacksmarter": "Hack Smarter"})
     assert msg.startswith("⚡ <b>Hack Smarter</b>") and "&lt;VIP&gt;" in msg
+
+
+def test_ai_usage_promos_trigger():
+    a = item(id="c", summary="ADDED: Get 2x usage and fast mode through Dec 31")
+    b = item(id="d", summary="ADDED: 30% off Copilot Fusion usage until Dec 31")
+    assert {x["id"] for x in find_alerts([a, b], set(), NOW)} == {"c", "d"}

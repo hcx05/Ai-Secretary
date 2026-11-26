@@ -27,6 +27,8 @@ URGENT = re.compile(
     r"free (this|for a|for one) (week|weekend|month)|\d{1,4} free (labs?|rooms?|machines?|courses?|days?)|"
     r"free (labs?|vip|access|month|trial)|giveaway|\d{1,4} ?% off|save \$\d{1,4}|black friday|cyber monday|"
     r"sale ends|ends (today|tonight|soon)|voucher|promo code|coupon|"
+    r"\b2x\b|double (usage|limits?)|(free|bonus) credits|\d{1,4}% off .{0,40}usage|"
+    r"額度加倍|用量加倍|免費額度|"
     r"限時|免費|折扣|特價|優惠碼|買一送一",
     re.I,
 )
