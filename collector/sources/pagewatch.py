@@ -3,6 +3,7 @@ import hashlib
 import re
 
 from ..normalize import make_item, strip_html
+from ..render import check_not_blocked, render_text
 
 KEEP_CHARS = 30000  # stored text per page, so the next change can be diffed
 
@@ -29,9 +30,13 @@ def diff_summary(old: str, new: str, limit: int = 600) -> str:
 def fetch(src, ctx):
     """Hash a page's visible text; emit one item only when the hash changed since last run.
     State lives in ctx.state[src_id] = {"hash", "checked", "text"}. First sight only records a baseline.
-    The item summary is a word diff against the stored text when one exists."""
-    r = ctx.get(src["url"])
-    text = strip_html(r.text)
+    The item summary is a word diff against the stored text when one exists.
+    render: true -> load the page in headless Chromium (for sites that build content with JS)."""
+    if src.get("render"):
+        text = render_text(src["url"])
+    else:
+        text = strip_html(ctx.get(src["url"]).text)
+    check_not_blocked(text)
     if src.get("ignore_regex"):
         text = re.sub(src["ignore_regex"], "", text)
     digest = hashlib.sha1(text.encode()).hexdigest()[:16]  # same input as before, so old hashes stay valid

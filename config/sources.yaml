@@ -3,7 +3,8 @@
 # 近 30 天成功率等統計由 collector 寫在 data/coverage.json(不寫回本檔,避免每次執行都改設定)。
 known_gaps:
   - X (Twitter)
-  - Discord
+  - Discord(部分平台只在 Discord 公告)
+  - Reddit(停用,二手資訊)
   - 需登入的社群與付費牆內容
 
 sources:
@@ -64,9 +65,9 @@ sources:
      rising_topics: [claude-code, agent-skills, claude-skills, claude-code-plugin, mcp-server, context-engineering, ai-agents],
      watch_releases: [anthropics/claude-code, anthropics/claude-agent-sdk-python, google-gemini/gemini-cli, openai/codex, neovim/neovim],
      why: "新興開源專案 + 日常 CLI 工具的版本發布", note: "本機被工作階段政策擋下(403),Actions 內用內建 GITHUB_TOKEN,未驗證"}
-  - {id: reddit, type: reddit, enabled: true, prior: 0.4, min_score: 80,
+  - {id: reddit, type: reddit, enabled: false, prior: 0.4, min_score: 80,
      subs: [ClaudeAI, LocalLLaMA, netsec, WritingWithAI],
-     why: "使用者實測心得與社群反應;雲端 IP 常被擋,失敗會記入 coverage", note: "本機代理封鎖,未驗證"}
+     why: "使用者實測心得與社群反應", note: "2026-11-26 停用:雲端一律被擋,且屬二手資訊;改直接盯官方來源(D-011)"}
   # --- 長期追蹤:頁面變更偵測 ---
   - {id: pw_github_student_pack, type: pagewatch, enabled: true, prior: 1.5, tags: [deals, student],
      url: "https://education.github.com/pack", name: "GitHub Student Developer Pack",
@@ -92,6 +93,16 @@ sources:
   - {id: pw_htb_events, type: pagewatch, enabled: true, prior: 1.5, tags: [security, platform],
      url: "https://www.hackthebox.com/events", name: "Hack The Box events",
      why: "HTB 活動與 CTF 頁面變動", note: "2026-11-26 實測兩次雜湊一致"}
+  # 官網要用瀏覽器跑出內容才看得到(render: true),2026-11-26 實測兩次雜湊一致
+  - {id: pw_hacksmarter, type: pagewatch, render: true, enabled: true, prior: 1.5, tags: [security, platform],
+     url: "https://www.hacksmarter.org/courses", name: "Hack Smarter",
+     why: "新靶場、限時免費、活動(官網首頁橫幅與新上架)", note: "JS 網站,無 RSS"}
+  - {id: pw_htb_home, type: pagewatch, render: true, enabled: true, prior: 1.2, tags: [security, platform],
+     url: "https://www.hackthebox.com", name: "Hack The Box",
+     why: "首頁促銷橫幅與新活動"}
+  - {id: pw_offsec_home, type: pagewatch, render: true, enabled: true, prior: 1.2, tags: [security, platform],
+     url: "https://www.offsec.com", name: "OffSec",
+     why: "首頁促銷橫幅(折扣、認證組合)"}
   # --- 免費資源(不限學生)---
   - {id: pw_gcp_free, type: pagewatch, enabled: true, prior: 1.5, tags: [deals, free],
      url: "https://cloud.google.com/free", name: "Google Cloud free program",

@@ -2,8 +2,8 @@ name: collect
 
 on:
   schedule:
-    # Re-registered 2026-11-26: the original schedule never fired (see DECISIONS D-009).
-    - cron: "41 1,7,13,19 * * *"
+    # Every 2 hours at :41 (odd UTC hours) so time-limited offers are caught early (D-011).
+    - cron: "41 1-23/2 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -24,6 +24,8 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Headless browser for render sources
+        run: pip install playwright==1.65.2 && python -m playwright install --with-deps chromium
       - name: Telegram inbox (no-op without secrets)
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -36,6 +38,11 @@ jobs:
         run: python -m collector
       - name: Prune old data
         run: python -m collector.prune
+      - name: Instant alerts for time-limited offers (no-op without secrets)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m notify.flash || echo "flash failed, continuing"
       - name: Commit data
         env:
           SUMMARY: ${{ steps.collect.outputs.summary }}
