@@ -1,25 +1,27 @@
 {
- "generated": "2026-11-26T02:09:24Z",
+ "generated": "2026-11-26T07:04:24Z",
  "date": "2026-11-26",
- "sources_ok": 33,
- "sources_total": 34,
+ "sources_ok": 34,
+ "sources_total": 36,
  "failed": [
-  "reddit"
+  "arxiv_ai",
+  "arxiv_sec_hci"
  ],
  "known_gaps": [
   "X (Twitter)",
-  "Discord",
+  "Discord(部分平台只在 Discord 公告)",
+  "Reddit(停用,二手資訊)",
   "需登入的社群與付費牆內容"
  ],
  "totals": {
-  "fetched": 344,
-  "input": 344,
-  "seen": 4,
-  "recent": 23,
-  "dup_url": 16,
-  "dup_title": 6,
-  "seen_similar": 0,
-  "output": 295,
+  "fetched": 233,
+  "input": 273,
+  "seen": 24,
+  "recent": 21,
+  "dup_url": 33,
+  "dup_title": 5,
+  "seen_similar": 1,
+  "output": 190,
   "shortlist": 40
  },
  "sources": {
@@ -28,10 +30,11 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -42,11 +45,12 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 5,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -57,10 +61,11 @@
    "count": 5,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -71,10 +76,11 @@
    "count": 8,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -84,11 +90,12 @@
    "ok": true,
    "count": 14,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 3,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -99,10 +106,11 @@
    "count": 10,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -112,11 +120,12 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -127,21 +136,23 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
   "latent_space": {
    "type": "rss",
    "ok": true,
-   "count": 19,
+   "count": 17,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T02:09:24Z",
+   "shortlisted": 3,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -151,9 +162,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -162,10 +174,11 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -175,9 +188,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -187,9 +201,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -199,10 +214,11 @@
    "count": 2,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -213,10 +229,11 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -227,10 +244,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -241,10 +259,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -254,11 +273,12 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -268,11 +288,12 @@
    "ok": true,
    "count": 19,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -280,43 +301,46 @@
   "hn": {
    "type": "hn",
    "ok": true,
-   "count": 27,
+   "count": 19,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 3,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
   },
   "arxiv_ai": {
    "type": "arxiv",
-   "ok": true,
-   "count": 60,
-   "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+OR+cat%3Acs.CL&sortBy=submittedDate&sortOrder=descending&max_results=60",
+   "shortlisted": 0,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.5,
    "history": [
     false,
     true,
-    true
+    true,
+    false
    ]
   },
   "arxiv_sec_hci": {
    "type": "arxiv",
-   "ok": true,
-   "count": 40,
-   "error": null,
+   "ok": false,
+   "count": 0,
+   "error": "ReadTimeout: HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=15)",
    "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.5,
    "history": [
     false,
     true,
-    true
+    true,
+    false
    ]
   },
   "github_topics": {
@@ -324,27 +348,14 @@
    "ok": true,
    "count": 58,
    "error": null,
-   "shortlisted": 24,
-   "fetched": "2026-11-26T02:09:24Z",
+   "shortlisted": 11,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
     true,
     true,
+    true,
     true
-   ]
-  },
-  "reddit": {
-   "type": "reddit",
-   "ok": false,
-   "count": 0,
-   "error": "RuntimeError: r/ClaudeAI: 403 Client Error: Blocked for url: https://www.reddit.com/r/ClaudeAI/top.json?t=day&limit=20; r/LocalLLaMA: 403 Client Error: Blocked for url: https://www.reddit.com/r/LocalLLaMA/top.json?",
-   "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.0,
-   "history": [
-    false,
-    false,
-    false
    ]
   },
   "pw_github_student_pack": {
@@ -352,11 +363,12 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -367,9 +379,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -378,13 +391,14 @@
   "pw_google_ai_plans": {
    "type": "pagewatch",
    "ok": true,
-   "count": 1,
+   "count": 0,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
-   "success_rate": 0.667,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 0.75,
    "history": [
     false,
+    true,
     true,
     true
    ]
@@ -394,10 +408,11 @@
    "ok": true,
    "count": 3,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T02:09:24Z",
+   "shortlisted": 2,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -406,10 +421,11 @@
    "ok": true,
    "count": 7,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T02:09:24Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -419,9 +435,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -431,9 +448,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -443,7 +461,44 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true,
+    true
+   ]
+  },
+  "pw_hacksmarter": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_htb_home": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T07:04:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_offsec_home": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
     true
@@ -455,9 +510,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -467,9 +523,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T02:09:24Z",
+   "fetched": "2026-11-26T07:04:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   }
