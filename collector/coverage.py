@@ -14,6 +14,10 @@ def build_coverage(results: dict, previous: dict | None, now_iso: str, date: str
     prev = (previous or {}).get("sources", {})
     sources = {}
     for sid, r in results.items():
+        if r.get("skipped") and sid in prev:
+            # not due this run: keep the last real fetch so the interval and history stay correct
+            sources[sid] = {**prev[sid], "shortlisted": (shortlisted or {}).get(sid, 0)}
+            continue
         hist = (prev.get(sid, {}).get("history", []) + [bool(r["ok"])])[-HISTORY_LEN:]
         sources[sid] = {"type": r["type"], "ok": bool(r["ok"]), "count": r["count"], "error": r["error"],
                         "shortlisted": (shortlisted or {}).get(sid, 0), "fetched": now_iso,

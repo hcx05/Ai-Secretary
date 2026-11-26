@@ -157,3 +157,12 @@ def test_pagewatch_diff_summary():
     s = diff_summary("Plan A costs 10 dollars", "Plan A costs 5 dollars free trial")
     assert "ADDED: 5" in s and "free trial" in s and "REMOVED: 10" in s
     assert diff_summary("", "anything") == ""
+
+
+def test_min_interval_skips_and_keeps_last_fetch():
+    from collector.coverage import build_coverage
+    prev = {"sources": {"ax": {"type": "arxiv", "ok": True, "count": 5, "error": None, "fetched": "2026-11-26T06:00:00Z",
+                               "history": [True], "success_rate": 1.0, "shortlisted": 2}}}
+    cov = build_coverage({"ax": {"type": "arxiv", "ok": True, "count": 0, "error": "skipped", "skipped": True}},
+                         prev, "2026-11-26T08:00:00Z", "2026-11-26")
+    assert cov["sources"]["ax"]["fetched"] == "2026-11-26T06:00:00Z" and cov["sources"]["ax"]["history"] == [True]

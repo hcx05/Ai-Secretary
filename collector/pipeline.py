@@ -77,13 +77,27 @@ def run(*, sources_path, interests_path, scoring_path, budget_path, seen_path, d
 
     state_path = data_dir / "pagewatch.json"
     state = load_json(state_path, {})
+    prev_cov = load_json(data_dir / "coverage.json", {}).get("sources", {})
+
+    def due(s: dict) -> bool:
+        """Sources with min_interval_hours (e.g. arXiv, which rate-limits and updates daily) run less often."""
+        hours, prev = s.get("min_interval_hours"), prev_cov.get(s["id"], {})
+        last = parse_iso(prev.get("fetched")) if prev.get("ok") else None
+        return not hours or last is None or now - last >= timedelta(hours=hours)
+
+    def one(s: dict) -> dict:
+        if not due(s):
+            return {"type": s.get("type", "?"), "ok": True, "count": 0, "error": "skipped: min_interval_hours",
+                    "items": [], "skipped": True}
+        return fetch_source(s, http, now, state, github_token, scoring.get("max_age_days", 14))
+
     with ThreadPoolExecutor(max_workers=8) as ex:
-        outs = list(ex.map(lambda s: fetch_source(s, http, now, state, github_token, scoring.get("max_age_days", 14)), sources))
+        outs = list(ex.map(one, sources))
     results = {s["id"]: o for s, o in zip(sources, outs)}
 
     pool: list[Item] = []
     for sid, o in results.items():
-        if o["ok"]:
+        if o["ok"] and not o.get("skipped"):
             write_jsonl(data_dir / "raw" / day / f"{sid}.jsonl", [i.to_dict() for i in o["items"]])
         pool.extend(o["items"])
 
@@ -104,7 +118,7 @@ def run(*, sources_path, interests_path, scoring_path, budget_path, seen_path, d
     per_src: dict[str, int] = {}
     for i in shortlist:
         per_src[i.source_id] = per_src.get(i.source_id, 0) + 1
-    cov = build_coverage({k: {x: v[x] for x in ("type", "ok", "count", "error")} for k, v in results.items()},
+    cov = build_coverage({k: {x: v.get(x) for x in ("type", "ok", "count", "error", "skipped")} for k, v in results.items()},
                          load_json(data_dir / "coverage.json"), now_iso, day, cfg.get("known_gaps"), per_src,
                          {"fetched": sum(o["count"] for o in outs), **dstats, "shortlist": len(shortlist)})
     data_dir.mkdir(parents=True, exist_ok=True)

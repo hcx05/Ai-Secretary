@@ -55,9 +55,9 @@ sources:
   # --- 社群與研究 ---
   - {id: hn, type: hn, enabled: true, prior: 0.5, min_points: 120, hours: 24, tags: [community],
      why: "技術社群熱門,交叉驗證用", note: "本機代理封鎖,未驗證"}
-  - {id: arxiv_ai, type: arxiv, enabled: true, prior: 0.3, categories: [cs.AI, cs.CL], max_age_days: 2, limit: 60, tags: [paper],
+  - {id: arxiv_ai, type: arxiv, enabled: true, min_interval_hours: 12, prior: 0.3, categories: [cs.AI, cs.CL], max_age_days: 2, limit: 60, tags: [paper],
      why: "AI/LLM 論文(量大,靠主題權重篩)", note: "本機代理封鎖,未驗證"}
-  - {id: arxiv_sec_hci, type: arxiv, enabled: true, prior: 0.3, categories: [cs.CR, cs.HC], max_age_days: 2, limit: 40, tags: [paper],
+  - {id: arxiv_sec_hci, type: arxiv, enabled: true, min_interval_hours: 12, prior: 0.3, categories: [cs.CR, cs.HC], max_age_days: 2, limit: 40, tags: [paper],
      why: "資安與人機互動論文,涵蓋 AI 安全與 AI 輔助創作", note: "本機代理封鎖,未驗證"}
   - {id: github_topics, type: github, enabled: true, prior: 1.0, days: 7, per_topic: 6,
      topics: [llm, penetration-testing],
