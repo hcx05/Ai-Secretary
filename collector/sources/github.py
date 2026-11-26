@@ -13,7 +13,8 @@ def _headers(ctx):
 
 
 def fetch(src, ctx):
-    """New repos by topic (last 7 days, by stars) + releases of watched repos.
+    """New repos by topic (last 7 days, by stars), rising repos (<= rising_days old, >= rising_min_stars)
+    + releases of watched repos.
     A failing sub-request is skipped; the source fails only if every request fails."""
     fetched = ctx.now.strftime("%Y-%m-%dT%H:%M:%SZ")
     since = (ctx.now - timedelta(days=src.get("days", 7))).strftime("%Y-%m-%d")
@@ -31,6 +32,22 @@ def fetch(src, ctx):
                                        tags=(r.get("topics") or [])[:6] + [topic]))
         except Exception as e:  # noqa: BLE001
             errors.append(f"topic {topic}: {e}")
+    # "Rising": repos up to rising_days old that already crossed rising_min_stars.
+    # Catches tools that took off after their first week; dedupe drops ones already shortlisted.
+    r_since = (ctx.now - timedelta(days=src.get("rising_days", 30))).strftime("%Y-%m-%d")
+    for topic in src.get("rising_topics", []):
+        calls += 1
+        try:
+            q = f"topic:{topic} created:>{r_since} stars:>={src.get('rising_min_stars', 200)}"
+            data = ctx.get(f"{API}/search/repositories", key="search", headers=_headers(ctx),
+                           params={"q": q, "sort": "stars", "order": "desc", "per_page": src.get("per_topic", 8)}).json()
+            for r in data.get("items", []):
+                items.append(make_item(src["id"], r["html_url"], r["full_name"],
+                                       summary=r.get("description") or "", published=r.get("pushed_at") or r.get("created_at"),
+                                       engagement=r.get("stargazers_count"), fetched=fetched,
+                                       tags=(r.get("topics") or [])[:6] + [topic, "rising"]))
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"rising {topic}: {e}")
     for repo in src.get("watch_releases", []):
         calls += 1
         try:

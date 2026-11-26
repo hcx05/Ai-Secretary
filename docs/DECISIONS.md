@@ -41,3 +41,9 @@
 - **權重**:`deals`、`free_resources` 升到 3.0,關鍵字不限學生;新增 `security_platforms` 3.0。
 - **格式**:每則去掉「為什麼重要/與你有關」標籤、「建議行動」、自我關聯評語;可信度只寫高/中/低。簡報新增「優惠與活動」一節,不占主要情報名額。
 - **限制**:頁面變動偵測第一次只建基準,不會報出加入前已存在的內容。
+
+## D-008 工作流與開源工具(2026-11-26,使用者指示)
+- **來源**:新增 Anthropic Engineering、Latent Space、Addy Osmani、Armin Ronacher、Hamel Husain、OpenAI Engineering(RSS)。
+- **GitHub**:除了 7 天內新建的 repo,新增「竄升」查詢:30 天內建立且 ★≥200,主題 claude-code、agent-skills、claude-skills、claude-code-plugin、mcp-server、context-engineering、ai-agents。已進過短名單的不重複出現。
+- **權重**:新增 `workflow` 主題 3.0。簡報新增「開源工具」一節(一行一則),只介紹不安裝。
+- **風險**:熱門新 repo 可能是供應鏈攻擊載體;簡報標「程式碼未審查」,判斷層不執行任何抓到的程式。

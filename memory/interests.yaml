@@ -14,6 +14,10 @@ topics:
     weight: 2.5
     desc: CLI AI 工具與工作流
     keywords: [claude code, codex, gemini cli, aider, opencode, cli, terminal, 命令列, 終端機]
+  workflow:
+    weight: 3.0
+    desc: 最先進的 AI 工作流;開源 skill、plugin、MCP、hook、agent 工具
+    keywords: [workflow, agentic engineering, agentic coding, vibe coding, skill, skills, agent skills, plugin, plugins, hooks, slash command, claude.md, agents.md, subagent, subagents, harness, worktree, context window, open source, open-source, 工作流, 外掛, 插件, 開源]
   multimodal:
     weight: 1.5
     desc: 多模態、即時語音、視覺、影片理解

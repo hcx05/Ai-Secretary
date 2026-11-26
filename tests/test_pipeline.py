@@ -124,3 +124,17 @@ def test_partial_failure_is_reported_but_source_stays_ok():
         return Resp(b'{"items": []}')
     out = fetch_source({"id": "g", "type": "github", "topics": ["llm"], "watch_releases": ["a/b"]}, http, NOW, {}, None, 14)
     assert out["ok"] and out["error"].startswith("partial:") and "a/b" in out["error"]
+
+
+def test_github_rising_query_and_tag():
+    from collector.http import Resp
+    seen_q = []
+
+    def http(sid, url, params=None, headers=None, key=None):
+        seen_q.append((params or {}).get("q", ""))
+        return Resp((FIX / "gh.search.json").read_bytes())
+    out = fetch_source({"id": "g", "type": "github", "rising_topics": ["agent-skills"], "rising_days": 30,
+                        "rising_min_stars": 200}, http, NOW, {}, None, 14)
+    assert out["ok"] and out["count"] == 1
+    assert "stars:>=200" in seen_q[0] and "topic:agent-skills" in seen_q[0]
+    assert "rising" in out["items"][0].tags
