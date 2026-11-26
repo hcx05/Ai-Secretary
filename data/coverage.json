@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-26T12:16:13Z",
+ "generated": "2026-11-26T12:43:00Z",
  "date": "2026-11-26",
- "sources_ok": 36,
- "sources_total": 36,
+ "sources_ok": 46,
+ "sources_total": 46,
  "failed": [],
  "known_gaps": [
   "X (Twitter)",
@@ -11,14 +11,14 @@
   "需登入的社群與付費牆內容"
  ],
  "totals": {
-  "fetched": 238,
-  "input": 278,
-  "seen": 28,
+  "fetched": 250,
+  "input": 290,
+  "seen": 21,
   "recent": 21,
-  "dup_url": 30,
+  "dup_url": 38,
   "dup_title": 5,
   "seen_similar": 1,
-  "output": 194,
+  "output": 205,
   "shortlist": 40
  },
  "sources": {
@@ -28,9 +28,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -44,11 +45,12 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -61,11 +63,12 @@
    "ok": true,
    "count": 5,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -78,11 +81,12 @@
    "ok": true,
    "count": 8,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -96,10 +100,11 @@
    "count": 14,
    "error": null,
    "shortlisted": 4,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -113,10 +118,11 @@
    "count": 10,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -130,10 +136,11 @@
    "count": 30,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -146,10 +153,11 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T12:16:13Z",
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -162,9 +170,10 @@
    "count": 17,
    "error": null,
    "shortlisted": 2,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -177,9 +186,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -192,9 +202,10 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -207,9 +218,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -222,9 +234,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -237,10 +250,11 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -253,11 +267,12 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -271,10 +286,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -288,10 +304,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -305,10 +322,11 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -322,10 +340,11 @@
    "count": 19,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -336,17 +355,18 @@
   "hn": {
    "type": "hn",
    "ok": true,
-   "count": 22,
+   "count": 23,
    "error": null,
-   "shortlisted": 4,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.667,
+   "shortlisted": 3,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.714,
    "history": [
     false,
     true,
     true,
     true,
     false,
+    true,
     true
    ]
   },
@@ -385,12 +405,13 @@
   "github_topics": {
    "type": "github",
    "ok": true,
-   "count": 59,
+   "count": 60,
    "error": null,
    "shortlisted": 11,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -404,11 +425,12 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 4,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "shortlisted": 5,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -422,9 +444,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -438,11 +461,12 @@
    "ok": true,
    "count": 0,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T12:16:13Z",
-   "success_rate": 0.833,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 0.857,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -456,9 +480,10 @@
    "count": 3,
    "error": null,
    "shortlisted": 2,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -470,10 +495,11 @@
    "ok": true,
    "count": 7,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T12:16:13Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -486,9 +512,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -501,9 +528,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -516,9 +544,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -531,9 +560,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -545,9 +575,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -558,12 +589,133 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
     true,
     true,
+    true,
+    true
+   ]
+  },
+  "pw_chatgpt_pricing": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_openai_api_pricing": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_copilot_plans": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_kiro_pricing": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_gemini_api_pricing": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_ai_coding_deals": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "coolpc": {
+   "type": "coolpc",
+   "ok": true,
+   "count": 10,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "slickdeals_hot": {
+   "type": "rss",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "slickdeals_popular": {
+   "type": "rss",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "slickdeals_watch": {
+   "type": "slickdeals_watch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:43:00Z",
+   "success_rate": 1.0,
+   "history": [
     true
    ]
   },
@@ -573,9 +725,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -588,9 +741,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:16:13Z",
+   "fetched": "2026-11-26T12:43:00Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
