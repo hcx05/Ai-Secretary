@@ -1,11 +1,9 @@
 {
- "generated": "2026-11-26T12:00:29Z",
+ "generated": "2026-11-26T12:16:13Z",
  "date": "2026-11-26",
- "sources_ok": 35,
+ "sources_ok": 36,
  "sources_total": 36,
- "failed": [
-  "hn"
- ],
+ "failed": [],
  "known_gaps": [
   "X (Twitter)",
   "Discord(部分平台只在 Discord 公告)",
@@ -13,14 +11,14 @@
   "需登入的社群與付費牆內容"
  ],
  "totals": {
-  "fetched": 316,
-  "input": 356,
-  "seen": 16,
-  "recent": 19,
-  "dup_url": 43,
+  "fetched": 238,
+  "input": 278,
+  "seen": 28,
+  "recent": 21,
+  "dup_url": 30,
   "dup_title": 5,
   "seen_similar": 1,
-  "output": 273,
+  "output": 194,
   "shortlist": 40
  },
  "sources": {
@@ -29,10 +27,11 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -45,11 +44,12 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -62,10 +62,11 @@
    "count": 5,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -78,10 +79,11 @@
    "count": 8,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -93,11 +95,12 @@
    "ok": true,
    "count": 14,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "shortlisted": 4,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -110,10 +113,11 @@
    "count": 10,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -126,10 +130,11 @@
    "count": 30,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -142,9 +147,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -156,9 +162,10 @@
    "count": 17,
    "error": null,
    "shortlisted": 2,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -170,9 +177,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -184,9 +192,10 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -198,9 +207,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -212,9 +222,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -226,10 +237,11 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -242,10 +254,11 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -258,10 +271,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -274,10 +288,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -289,11 +304,12 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -305,11 +321,12 @@
    "ok": true,
    "count": 19,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -318,18 +335,19 @@
   },
   "hn": {
    "type": "hn",
-   "ok": false,
-   "count": 0,
-   "error": "ReadTimeout: HTTPSConnectionPool(host='hn.algolia.com', port=443): Read timed out. (read timeout=15)",
-   "shortlisted": 2,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.6,
+   "ok": true,
+   "count": 22,
+   "error": null,
+   "shortlisted": 4,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.667,
    "history": [
     false,
     true,
     true,
     true,
-    false
+    false,
+    true
    ]
   },
   "arxiv_ai": {
@@ -337,7 +355,7 @@
    "ok": true,
    "count": 60,
    "error": null,
-   "shortlisted": 5,
+   "shortlisted": 4,
    "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 0.6,
    "history": [
@@ -353,7 +371,7 @@
    "ok": true,
    "count": 40,
    "error": null,
-   "shortlisted": 2,
+   "shortlisted": 0,
    "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 0.6,
    "history": [
@@ -369,10 +387,11 @@
    "ok": true,
    "count": 59,
    "error": null,
-   "shortlisted": 10,
-   "fetched": "2026-11-26T12:00:29Z",
+   "shortlisted": 11,
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -385,11 +404,12 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "shortlisted": 4,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -402,9 +422,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -418,10 +439,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
-   "success_rate": 0.8,
+   "fetched": "2026-11-26T12:16:13Z",
+   "success_rate": 0.833,
    "history": [
     false,
+    true,
     true,
     true,
     true,
@@ -433,10 +455,11 @@
    "ok": true,
    "count": 3,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T12:00:29Z",
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -447,10 +470,11 @@
    "ok": true,
    "count": 7,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T12:00:29Z",
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -462,9 +486,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -476,9 +501,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -490,9 +516,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -504,9 +531,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -517,9 +545,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -530,9 +559,10 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -543,9 +573,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
@@ -557,9 +588,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T12:00:29Z",
+   "fetched": "2026-11-26T12:16:13Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true
