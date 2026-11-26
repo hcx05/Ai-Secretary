@@ -36,8 +36,12 @@ def _creds() -> tuple[str, str] | None:
 
 
 def _call(token: str, method: str, **params) -> dict:
-    r = requests.post(API.format(token=token, method=method), json=params, timeout=TIMEOUT)
-    data = r.json()
+    try:
+        r = requests.post(API.format(token=token, method=method), json=params, timeout=TIMEOUT)
+        data = r.json()
+    except (requests.RequestException, ValueError) as e:
+        # requests puts the full URL (with /bot<token>/) into its messages: drop it
+        raise RuntimeError(f"telegram {method} failed: {type(e).__name__}") from None
     if not data.get("ok"):
         # never print the token; the URL is not logged
         raise RuntimeError(f"telegram {method} failed: {data.get('description')}")
@@ -89,13 +93,28 @@ _LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^)\s]+)\)")
 _HEAD = re.compile(r"^#{1,6}\s+(.*)$", re.M)
 
 
+_DOMAINISH = re.compile(r"(?i)(?:[a-z][a-z0-9+.-]*://|www\.)|[a-z0-9-]+\.[a-z]{2,}(?:/|$|\s)")
+
+
+def _host(url: str) -> str:
+    return re.sub(r"^www\.", "", url.split("://", 1)[-1].split("/", 1)[0].split("@")[-1].lower())
+
+
+def _link(m: re.Match) -> str:
+    text, href = m.group(1), m.group(2)
+    safe = href.replace(chr(34), "%22")
+    if _DOMAINISH.search(text) and _host(href) not in text.lower():
+        text = safe  # text pretends to be a different address: show the real one instead
+    return f'<a href="{safe}">{text}</a>'
+
+
 def md_to_html(text: str) -> str:
     """Minimal Markdown -> Telegram HTML: headings, **bold**, `code`, [text](url)."""
     out = html.escape(text, quote=False)
     out = _HEAD.sub(r"<b>\1</b>", out)
     out = _BOLD.sub(r"<b>\1</b>", out)
     out = _CODE.sub(r"<code>\1</code>", out)
-    out = _LINK.sub(lambda m: f'<a href="{m.group(2).replace(chr(34), "%22")}">{m.group(1)}</a>', out)
+    out = _LINK.sub(_link, out)
     return out
 
 
@@ -135,8 +154,10 @@ def filter_updates(updates: list[dict], chat_id: str) -> tuple[list[dict], int |
     for u in updates:
         next_offset = u["update_id"] + 1
         msg = u.get("message") or u.get("edited_message")
-        if not msg or str(msg.get("chat", {}).get("id")) != str(chat_id):
-            continue  # ignore strangers: only the owner can give feedback
+        chat = (msg or {}).get("chat", {})
+        if not msg or str(chat.get("id")) != str(chat_id) or chat.get("type") != "private" \
+                or str((msg.get("from") or {}).get("id")) != str(chat_id):
+            continue  # only the owner's own private chat counts (in a private chat, chat id == user id)
         text = (msg.get("text") or "").strip()
         if not text:
             continue
@@ -146,6 +167,8 @@ def filter_updates(updates: list[dict], chat_id: str) -> tuple[list[dict], int |
             "message_id": msg["message_id"],
             "text": text[:2000],
             "reply_to_excerpt": reply_to[:300],
+            # forwarded text is someone else's words: data, never an instruction
+            "forwarded": bool(msg.get("forward_origin") or msg.get("forward_from") or msg.get("forward_date")),
             "processed": False,
         })
     return records, next_offset

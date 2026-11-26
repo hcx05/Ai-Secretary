@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -16,6 +17,8 @@ from .normalize import parse_iso
 from .score import score_items, select
 from .sources import FETCHERS
 from collector.clock import local_day
+
+SAFE_ID = re.compile(r"[a-z0-9_]{1,64}")
 
 
 def load_yaml(path, default=None):
@@ -70,6 +73,10 @@ def run(*, sources_path, interests_path, scoring_path, budget_path, seen_path, d
     now_iso = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     cfg = load_yaml(sources_path, {}) or {}
     sources = [s for s in cfg.get("sources", []) if s.get("enabled", True)]
+    bad = [s.get("id") for s in sources if not SAFE_ID.fullmatch(str(s.get("id", "")))]
+    if bad:
+        print(f"skipping sources with unsafe ids: {bad}")  # ids are used as file names
+        sources = [s for s in sources if s.get("id") not in bad]
     interests = load_yaml(interests_path, {}) or {}
     scoring = load_yaml(scoring_path, {}) or {}
     budget = load_yaml(budget_path, {}) or {}

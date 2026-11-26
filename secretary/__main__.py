@@ -4,6 +4,7 @@
   python -m secretary seen-add --shortlist data/shortlist/2026-11-25.jsonl ID [ID ...]
   python -m secretary interests TOPIC +0.3
   python -m secretary tracking-due [--today YYYY-MM-DD]
+  python -m secretary guard --mode daily|feedback|weekly
 """
 from __future__ import annotations
 
@@ -39,6 +40,13 @@ def main(argv=None):
     i.add_argument("delta", type=float)
     t = sub.add_parser("tracking-due")
     t.add_argument("--today", default=local_day())
+    sub.add_parser("guard", add_help=False)
+    if argv is None:
+        import sys
+        argv = sys.argv[1:]
+    if argv and argv[0] == "guard":
+        from .guard import main as guard_main
+        raise SystemExit(guard_main(argv[1:]))
     a = ap.parse_args(argv)
 
     if a.cmd == "feedback":

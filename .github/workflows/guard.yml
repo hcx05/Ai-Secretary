@@ -1,0 +1,42 @@
+name: guard
+
+# Tell the owner on Telegram whenever code, workflows, dependencies or agent rules change on main.
+# The scheduled agent should only ever touch briefs/, memory/, data/ (and config/, agent/ weekly);
+# anything else showing up here unasked is a sign of prompt injection. Uses no repo code.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.py"
+      - ".github/**"
+      - "requirements*"
+      - "CLAUDE.md"
+      - "agent/**"
+      - "config/**"
+
+permissions:
+  contents: read
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Telegram alert (no-op without secrets)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ] || exit 0
+          if git cat-file -e "$BEFORE" 2>/dev/null; then range="$BEFORE..$AFTER"; else range="$AFTER~1..$AFTER"; fi
+          files=$(git diff --name-only "$range" -- '*.py' .github 'requirements*' CLAUDE.md agent config | head -n 30)
+          log=$(git log --format='%h %s' "$range" | head -n 10)
+          text=$(printf '⚠️ main 的程式或設定有變更\n\n%s\n\n檔案:\n%s\n\n不是你要求的改動就先停用 cron-job.org 並檢查。' "$log" "$files")
+          python3 -c 'import json,os,sys; print(json.dumps({"chat_id": os.environ["TELEGRAM_CHAT_ID"], "text": sys.stdin.read()[:3900], "disable_web_page_preview": True}))' <<< "$text" > body.json
+          curl -sS -o /dev/null -w "telegram %{http_code}\n" -H "Content-Type: application/json" --data @body.json \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage"

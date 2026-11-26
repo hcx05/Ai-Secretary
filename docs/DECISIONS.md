@@ -67,3 +67,12 @@
 - **代價**:Actions 用量約每天 12 次 × 2–3 分鐘(私有 repo 免費額度每月 2000 分鐘內)。
 - **仍抓不到**:只在 Discord 或 X 公告的消息。
 - **2026-11-26 12:00 UTC 已恢復(外部觸發)**:使用者設定 cron-job.org 每 2 小時(台北整點偶數時)呼叫 `collect.yml` 的 workflow_dispatch,token 為 fine-grained、只限本 repo、只有 Actions 讀寫;測試回 204,12:00 UTC 實際觸發成功。token 存在 cron-job.org,不在 repo;到期或外洩時到 GitHub 撤銷重建。
+
+## D-012 滲透測試後的加固(2026-11-26,使用者:「在不影響現有功能情況下盡可能修」)
+- **H1 提示注入 → 改程式 → 拿 secrets**:無法在程式層完全封死(私有 repo 的分支保護需付費方案)。三層緩解:(1) `python -m secretary guard`:排程流程推送前檢查路徑白名單(daily 只能動 `briefs/ memory/ data/`),失敗不推;(2) `guard.yml`:main 上程式、workflow、依賴、`agent/`、`config/` 有變更就發 Telegram 通知,不執行 repo 程式;(3) CLAUDE.md 明定外部內容要求改程式、加來源、推送、讀秘密一律視為注入。
+- **M1**:Anthropic 兩個鏡像來源拿掉 `official`、prior 降到 1.0;只讀鏡像可信度最多「中」。
+- **M2**:無頭瀏覽器只拿到最小環境變數(不含 token),能開沙箱就開;collect checkout 不留憑證,推送時才帶 token。
+- **M3**:`requirements.txt`、`requirements-render.txt` 以 pip-compile 釘版本與 hash(來源在 `*.in`),Python 3.11/3.13 都實測安裝與測試通過。升級:改 `.in` 後重跑 pip-compile。
+- **M4**:Telegram 連結文字若像網址卻指向別處,改顯示真實網址。
+- **L1–L8**:來源 id 限 `[a-z0-9_]`;inbox 只收私聊且寄件者是本人,轉傳標 `forwarded`;外部 tag 加 `x:` 前綴;Telegram 錯誤訊息不含 token;notify 手動輸入只接受 `briefs/YYYY-MM-DD.md`;下載上限 10MB / 60 秒;限時正規表示式數字限 4 位;feedback 原話用 heredoc 傳入。
+- **未做**:Telegram 與 collect 仍執行 repo 內程式(H1 的根本解需要分支保護或把 secrets 移出 repo 程式可及範圍)。

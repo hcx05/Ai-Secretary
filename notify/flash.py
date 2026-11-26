@@ -23,9 +23,9 @@ from collector.normalize import parse_iso
 FLASH_TAGS = {"platform", "deals", "free"}
 MAX_AGE = timedelta(hours=48)
 URGENT = re.compile(
-    r"free for (the next )?\d+ (hours?|days?)|for (the next )?24 hours|limited[- ]time|"
-    r"free (this|for a|for one) (week|weekend|month)|\d+ free (labs?|rooms?|machines?|courses?|days?)|"
-    r"free (labs?|vip|access|month|trial)|giveaway|\d+ ?% off|save \$\d+|black friday|cyber monday|"
+    r"free for (the next )?\d{1,4} (hours?|days?)|for (the next )?24 hours|limited[- ]time|"
+    r"free (this|for a|for one) (week|weekend|month)|\d{1,4} free (labs?|rooms?|machines?|courses?|days?)|"
+    r"free (labs?|vip|access|month|trial)|giveaway|\d{1,4} ?% off|save \$\d{1,4}|black friday|cyber monday|"
     r"sale ends|ends (today|tonight|soon)|voucher|promo code|coupon|"
     r"限時|免費|折扣|特價|優惠碼|買一送一",
     re.I,

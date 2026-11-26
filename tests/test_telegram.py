@@ -1,5 +1,5 @@
 from notify import telegram
-from notify.telegram import filter_updates, split_message
+from notify.telegram import md_to_html, filter_updates, split_message
 
 
 def test_split_short():
@@ -20,9 +20,10 @@ def test_split_hard_cuts_giant_line():
     assert [len(p) for p in parts] == [500, 500, 200]
 
 
-def _upd(uid, chat, text, date=1764000000):
-    return {"update_id": uid, "message": {"message_id": uid, "date": date,
-                                          "chat": {"id": chat}, "text": text}}
+def _upd(uid, chat, text, date=1764000000, ctype="private", sender=None, **extra):
+    msg = {"message_id": uid, "date": date, "chat": {"id": chat, "type": ctype},
+           "from": {"id": chat if sender is None else sender}, "text": text, **extra}
+    return {"update_id": uid, "message": msg}
 
 
 def test_filter_only_owner_and_offset():
@@ -51,3 +52,32 @@ def test_md_to_html():
     assert "<code>cmd</code>" in h
     assert '<a href="https://e.com/a?b=1&amp;c=2">doc</a>' in h
     assert md_to_plain("**x** `y`") == "x y"
+
+
+def test_filter_rejects_group_and_other_sender_flags_forward():
+    ups = [_upd(1, 111, "group msg", ctype="group"), _upd(2, 111, "spoof", sender=222),
+           _upd(3, 111, "fwd text", forward_origin={"type": "user"}), _upd(4, 111, "mine")]
+    recs, _ = filter_updates(ups, "111")
+    assert [(r["text"], r["forwarded"]) for r in recs] == [("fwd text", True), ("mine", False)]
+
+
+def test_link_text_cannot_fake_a_domain():
+    out = md_to_html("[https://www.offsec.com/promo](https://evil.example/x)")
+    assert ">https://evil.example/x</a>" in out
+    assert md_to_html("[OffSec 官網](https://www.offsec.com)").endswith(">OffSec 官網</a>")
+    assert ">www.offsec.com/x</a>" in md_to_html("[www.offsec.com/x](https://www.offsec.com/x)")
+
+
+def test_call_error_hides_token(monkeypatch):
+    import requests
+    from notify import telegram
+
+    def boom(*a, **k):
+        raise requests.ConnectionError("https://api.telegram.org/botSECRET123/sendMessage failed")
+    monkeypatch.setattr(telegram.requests, "post", boom)
+    try:
+        telegram._call("SECRET123", "sendMessage")
+    except RuntimeError as e:
+        assert "SECRET123" not in str(e)
+    else:
+        raise AssertionError("expected RuntimeError")

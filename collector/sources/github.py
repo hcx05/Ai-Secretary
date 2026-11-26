@@ -29,7 +29,7 @@ def fetch(src, ctx):
                 items.append(make_item(src["id"], r["html_url"], r["full_name"],
                                        summary=r.get("description") or "", published=r.get("created_at"),
                                        engagement=r.get("stargazers_count"), fetched=fetched,
-                                       tags=(r.get("topics") or [])[:6] + [topic]))
+                                       tags=["x:" + t for t in (r.get("topics") or [])[:6]] + [topic]))
         except Exception as e:  # noqa: BLE001
             errors.append(f"topic {topic}: {e}")
     # "Rising": repos up to rising_days old that already crossed rising_min_stars.
@@ -45,7 +45,7 @@ def fetch(src, ctx):
                 items.append(make_item(src["id"], r["html_url"], r["full_name"],
                                        summary=r.get("description") or "", published=r.get("pushed_at") or r.get("created_at"),
                                        engagement=r.get("stargazers_count"), fetched=fetched,
-                                       tags=(r.get("topics") or [])[:6] + [topic, "rising"]))
+                                       tags=["x:" + t for t in (r.get("topics") or [])[:6]] + [topic, "rising"]))
         except Exception as e:  # noqa: BLE001
             errors.append(f"rising {topic}: {e}")
     for repo in src.get("watch_releases", []):

@@ -16,7 +16,7 @@ def fetch(src, ctx):
         if not url:
             continue
         body = e.get("summary") or (e.get("content") or [{}])[0].get("value", "")
-        tags = [t.get("term", "") for t in e.get("tags", [])] + src.get("tags", [])
+        tags = ["x:" + t.get("term", "") for t in e.get("tags", []) if t.get("term")] + src.get("tags", [])
         items.append(make_item(src["id"], url, e.get("title", ""), summary=body, fetched=fetched,
                                published=e.get("published_parsed") or e.get("updated_parsed"), tags=tags))
     return items

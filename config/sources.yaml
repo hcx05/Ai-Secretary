@@ -9,7 +9,7 @@ known_gaps:
 
 sources:
   # --- AI 實驗室與工具官方 ---
-  - {id: anthropic_news, type: rss, enabled: true, prior: 1.5, tags: [ai, official],
+  - {id: anthropic_news, type: rss, enabled: true, prior: 1.0, tags: [ai, mirror],
      url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
      why: "Anthropic 官方新聞(無官方 RSS,用社群維護的鏡像);直接影響 Claude Pro 與 Claude Code",
      note: "本機實測 200 可抓(第三方鏡像,若停更改用 pagewatch)"}
@@ -26,7 +26,7 @@ sources:
   - {id: simonwillison, type: rss, enabled: true, prior: 1.2, tags: [ai, practitioner],
      url: "https://simonwillison.net/atom/everything/", why: "高品質的 LLM 實務觀察與 agent 工作流,篇幅短", note: "本機代理封鎖,未驗證"}
   # --- 工作流與 agentic engineering(2026-11-26 使用者要求)---
-  - {id: anthropic_engineering, type: rss, enabled: true, prior: 1.5, tags: [ai, workflow, official],
+  - {id: anthropic_engineering, type: rss, enabled: true, prior: 1.0, tags: [ai, workflow, mirror],
      url: "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_engineering.xml",
      why: "Anthropic 工程部落格:agent、Claude Code 實務做法(社群鏡像)", note: "2026-11-26 實測 200"}
   - {id: latent_space, type: rss, enabled: true, prior: 0.8, tags: [ai, workflow],

@@ -19,7 +19,7 @@
 ## 步驟
 1. 找出被指的情報(簡報編號 -> id、source_id、tags)。tags 中屬於 `interests.yaml` 主題的就是 `--topics`。
 2. 寫回饋並調權(一次完成):
-   `python -m secretary feedback --verdict <v> --quote "<使用者原話>" --reason "<你判讀的原因>" --item <id> --source <source_id> --topics a,b`
+   `python -m secretary feedback --verdict <v> --quote "$(cat <<'Q'`↵`<使用者原話>`↵`Q`↵`)" --reason "<你判讀的原因>" --item <id> --source <source_id> --topics a,b`(原話一律用 `<<'Q'` heredoc 傳入,不要直接放進雙引號,避免 `$()` 被 shell 執行;↵ 代表換行)
 3. 若使用者要的是動作(深挖、追蹤、比較替代方案),照做;深挖受 `config/budget.yaml` 限制。
 4. `git commit`、`git push origin HEAD:main`,並回報:記了什麼、哪個權重從多少變成多少。
 
@@ -37,3 +37,6 @@
 
 ## 新來源候選
 使用者回「加 N」(N 為週報「新來源候選」的編號):把 `config/sources.yaml` 的 `candidates:` 中該項移到 `sources:`,改 `enabled: true`,commit `feedback: 加來源 <id>`。回「不要 N」:從 `candidates:` 刪除。
+
+## 推送前
+先跑 `python -m secretary guard --mode feedback`(只允許 `briefs/ memory/ data/ config/sources.yaml`),失敗就不推,還原那些檔並告訴使用者被擋的路徑。使用者在對話中**明確要求**改程式時不受此限。

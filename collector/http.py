@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import time
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -9,6 +10,8 @@ import requests
 
 UA = "ai-secretary-collector/0.1"
 TIMEOUT = 15
+MAX_BYTES = 10_000_000   # no feed or page we watch is anywhere near this
+DEADLINE = 60            # seconds per request, including slow trickling bodies
 
 
 class Resp:
@@ -25,9 +28,17 @@ class Resp:
 def live_get(src_id: str, url: str, params=None, headers=None, key=None) -> Resp:
     h = {"User-Agent": UA}
     h.update(headers or {})
-    r = requests.get(url, params=params, headers=h, timeout=TIMEOUT)
-    r.raise_for_status()
-    return Resp(r.content)
+    start = time.monotonic()
+    with requests.get(url, params=params, headers=h, timeout=TIMEOUT, stream=True) as r:
+        r.raise_for_status()
+        buf = bytearray()
+        for chunk in r.iter_content(65536):
+            buf += chunk
+            if len(buf) > MAX_BYTES:
+                raise ValueError(f"response over {MAX_BYTES} bytes")
+            if time.monotonic() - start > DEADLINE:
+                raise TimeoutError(f"response took over {DEADLINE}s")
+    return Resp(bytes(buf))
 
 
 def fixture_getter(directory: str | Path):
