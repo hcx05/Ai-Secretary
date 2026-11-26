@@ -38,3 +38,10 @@ def test_ai_usage_promos_trigger():
     a = item(id="c", summary="ADDED: Get 2x usage and fast mode through Dec 31")
     b = item(id="d", summary="ADDED: 30% off Copilot Fusion usage until Dec 31")
     assert {x["id"] for x in find_alerts([a, b], set(), NOW)} == {"c", "d"}
+
+
+def test_watchlist_hit_alerts_without_keywords():
+    w = item(id="w", source_id="coolpc", tags=["3c", "tw", "watchlist"], title="原價屋 RTX 5070 降價:NT$20990 → NT$18990",
+             summary="ASUS ...")
+    out = find_alerts([w], set(), NOW)
+    assert out and "NT$18990" in out[0]["snippet"]

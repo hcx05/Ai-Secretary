@@ -1,0 +1,12 @@
+# 想買的品項。台灣:原價屋價格比上次低就推播;美國:Slickdeals 有新優惠就推播。
+# name: 顯示名稱
+# match: 品名必須符合的正規表示式(兩地共用,不分大小寫)
+# us: Slickdeals 搜尋字串(不填就只看台灣);tw: false 表示只看美國
+# exclude: 排除的正規表示式(例如筆電、整機);tw_category: 原價屋分類
+# 例:
+#   - name: RTX 5070
+#     match: "RTX\\s?5070(?!\\s?Ti)"
+#     exclude: "laptop|筆電|gaming pc|desktop|power supply|DDR5|ultra [579]|i[579]-|ryzen"
+#     tw_category: "顯示卡"
+#     us: "rtx 5070"
+items: []

@@ -34,6 +34,10 @@ topics:
     weight: 3.0
     desc: 大模型免費用量白嫖:免費額度、加倍用量、免費 credits、可用 Claude/GPT/Gemini 的免費方案
     keywords: [free tier, free plan, free credits, api credits, bonus credits, free usage, 2x usage, double usage, rate limit, usage limits, copilot free, kiro, gemini cli, openrouter, ai studio, 免費額度, 用量加倍, 額度, 白嫖]
+  hardware_deals:
+    weight: 2.5
+    desc: 3C 周邊與顯卡優惠(台灣、美國);指定品項見 config/watchlist.yaml
+    keywords: [gpu, graphics card, rtx, radeon, geforce, ssd, nvme, monitor, keyboard, mouse, headset, ddr5, ryzen, laptop, 顯示卡, 顯卡, 固態硬碟, 螢幕, 鍵盤, 滑鼠, 耳機, 記憶體, 筆電, 原價屋, 下殺]
   security_platforms:
     weight: 3.0
     desc: 資安學習平台(HTB、TryHackMe、PortSwigger、OffSec 等)的活動、優惠、重要更新

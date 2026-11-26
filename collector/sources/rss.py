@@ -1,3 +1,5 @@
+import re
+
 import feedparser
 
 from ..normalize import make_item
@@ -15,6 +17,8 @@ def fetch(src, ctx):
         url = e.get("link")
         if not url:
             continue
+        if src.get("include_regex") and not re.search(src["include_regex"], e.get("title", ""), re.I):
+            continue  # broad feeds (e.g. all deals): keep only what matches
         body = e.get("summary") or (e.get("content") or [{}])[0].get("value", "")
         tags = ["x:" + t.get("term", "") for t in e.get("tags", []) if t.get("term")] + src.get("tags", [])
         items.append(make_item(src["id"], url, e.get("title", ""), summary=body, fetched=fetched,

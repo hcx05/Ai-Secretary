@@ -21,6 +21,7 @@ from collector.clock import local_day
 from collector.normalize import parse_iso
 
 FLASH_TAGS = {"platform", "deals", "free"}
+ALWAYS = "watchlist"  # an item the user asked to watch: any new hit is worth a ping
 MAX_AGE = timedelta(hours=48)
 URGENT = re.compile(
     r"free for (the next )?\d{1,4} (hours?|days?)|for (the next )?24 hours|limited[- ]time|"
@@ -46,7 +47,12 @@ def _text(item: dict) -> str:
 def find_alerts(items: list[dict], sent: set[str], now: datetime) -> list[dict]:
     out = []
     for it in items:
-        if it.get("id") in sent or not FLASH_TAGS & set(it.get("tags", [])):
+        tags = set(it.get("tags", []))
+        if it.get("id") in sent or not (FLASH_TAGS | {ALWAYS}) & tags:
+            continue
+        if ALWAYS in tags:
+            out.append({"id": it["id"], "source_id": it.get("source_id"), "url": it.get("url"),
+                        "snippet": f"{it.get('title', '')} {it.get('summary', '')}".strip()[:400]})
             continue
         pub = parse_iso(it.get("published"))
         if pub is not None and now - pub > MAX_AGE:
@@ -82,12 +88,15 @@ def main(argv=None) -> int:
     names = {s["id"]: s.get("name") or s["id"] for s in srcs}
     items = []
     for f in sorted((data / "raw" / local_day(now)).glob("*.jsonl")):
-        if f.stem in flash_ids:
-            for line in f.read_text().splitlines():
-                if line.strip():
-                    it = json.loads(line)
-                    it["tags"] = sorted(set(it.get("tags", [])) | src_tags[f.stem])  # feeds may not carry source tags
-                    items.append(it)
+        for line in f.read_text().splitlines():
+            if not line.strip():
+                continue
+            it = json.loads(line)
+            if f.stem in flash_ids:
+                it["tags"] = sorted(set(it.get("tags", [])) | src_tags[f.stem])  # feeds may not carry source tags
+                items.append(it)
+            elif ALWAYS in it.get("tags", []):
+                items.append(it)  # watchlist hits from any source (3C price drops)
     alerts = find_alerts(items, sent, now)
     if not alerts:
         print("flash: nothing urgent")
