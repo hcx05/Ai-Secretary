@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-25T18:32:03Z",
- "date": "2026-11-25",
- "sources_ok": 20,
- "sources_total": 21,
+ "generated": "2026-11-26T02:09:24Z",
+ "date": "2026-11-26",
+ "sources_ok": 33,
+ "sources_total": 34,
  "failed": [
   "reddit"
  ],
@@ -12,14 +12,14 @@
   "需登入的社群與付費牆內容"
  ],
  "totals": {
-  "fetched": 294,
-  "input": 325,
-  "seen": 0,
-  "recent": 0,
-  "dup_url": 49,
-  "dup_title": 9,
+  "fetched": 344,
+  "input": 344,
+  "seen": 4,
+  "recent": 23,
+  "dup_url": 16,
+  "dup_title": 6,
   "seen_similar": 0,
-  "output": 267,
+  "output": 295,
   "shortlist": 40
  },
  "sources": {
@@ -29,9 +29,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
+   "fetched": "2026-11-26T02:09:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -42,10 +43,11 @@
    "count": 30,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -54,11 +56,12 @@
    "ok": true,
    "count": 5,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -68,23 +71,25 @@
    "count": 8,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
   "huggingface_blog": {
    "type": "rss",
    "ok": true,
-   "count": 15,
+   "count": 14,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -93,11 +98,12 @@
    "ok": true,
    "count": 10,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -106,11 +112,84 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
+    true
+   ]
+  },
+  "anthropic_engineering": {
+   "type": "rss",
+   "ok": true,
+   "count": 2,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "latent_space": {
+   "type": "rss",
+   "ok": true,
+   "count": 19,
+   "error": null,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "addyosmani": {
+   "type": "rss",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "lucumr": {
+   "type": "rss",
+   "ok": true,
+   "count": 1,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "hamel": {
+   "type": "rss",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "openai_engineering": {
+   "type": "rss",
+   "ok": true,
+   "count": 2,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
     true
    ]
   },
@@ -119,11 +198,12 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -133,10 +213,11 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -146,10 +227,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -159,10 +241,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -171,37 +254,40 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
   "cisa_kev": {
    "type": "cisa_kev",
    "ok": true,
-   "count": 10,
+   "count": 19,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
   "hn": {
    "type": "hn",
    "ok": true,
-   "count": 26,
+   "count": 27,
    "error": null,
-   "shortlisted": 5,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -210,11 +296,12 @@
    "ok": true,
    "count": 60,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -223,23 +310,25 @@
    "ok": true,
    "count": 40,
    "error": null,
-   "shortlisted": 4,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
   "github_topics": {
    "type": "github",
    "ok": true,
-   "count": 53,
+   "count": 58,
    "error": null,
-   "shortlisted": 23,
-   "fetched": "2026-11-25T18:32:03Z",
+   "shortlisted": 24,
+   "fetched": "2026-11-26T02:09:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -250,9 +339,10 @@
    "count": 0,
    "error": "RuntimeError: r/ClaudeAI: 403 Client Error: Blocked for url: https://www.reddit.com/r/ClaudeAI/top.json?t=day&limit=20; r/LocalLLaMA: 403 Client Error: Blocked for url: https://www.reddit.com/r/LocalLLaMA/top.json?",
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
+   "fetched": "2026-11-26T02:09:24Z",
    "success_rate": 0.0,
    "history": [
+    false,
     false,
     false
    ]
@@ -260,13 +350,14 @@
   "pw_github_student_pack": {
    "type": "pagewatch",
    "ok": true,
-   "count": 0,
+   "count": 1,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
    "history": [
     false,
+    true,
     true
    ]
   },
@@ -276,9 +367,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
+   "fetched": "2026-11-26T02:09:24Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -286,13 +378,98 @@
   "pw_google_ai_plans": {
    "type": "pagewatch",
    "ok": true,
+   "count": 1,
+   "error": null,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 0.667,
+   "history": [
+    false,
+    true,
+    true
+   ]
+  },
+  "htb_blog": {
+   "type": "rss",
+   "ok": true,
+   "count": 3,
+   "error": null,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "offsec_blog": {
+   "type": "rss",
+   "ok": true,
+   "count": 7,
+   "error": null,
+   "shortlisted": 3,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "portswigger_blog": {
+   "type": "rss",
+   "ok": true,
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-25T18:32:03Z",
-   "success_rate": 0.5,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
    "history": [
-    false,
+    true
+   ]
+  },
+  "pw_thm_blog": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_htb_events": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_gcp_free": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
+    true
+   ]
+  },
+  "pw_aws_free": {
+   "type": "pagewatch",
+   "ok": true,
+   "count": 0,
+   "error": null,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T02:09:24Z",
+   "success_rate": 1.0,
+   "history": [
     true
    ]
   }

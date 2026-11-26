@@ -1,14 +1,30 @@
 {
  "pw_anthropic_pricing": {
-  "checked": "2026-11-25T18:32:03Z",
+  "checked": "2026-11-26T02:09:24Z",
   "hash": "44874d859f9f2353"
  },
+ "pw_aws_free": {
+  "checked": "2026-11-26T02:09:24Z",
+  "hash": "d85a8bd55630c21e"
+ },
+ "pw_gcp_free": {
+  "checked": "2026-11-26T02:09:24Z",
+  "hash": "c147eb8807e46e8b"
+ },
  "pw_github_student_pack": {
-  "checked": "2026-11-25T18:32:03Z",
-  "hash": "efd00fa4b4bcd535"
+  "checked": "2026-11-26T02:09:24Z",
+  "hash": "1c037d44d4f9f9f4"
  },
  "pw_google_ai_plans": {
-  "checked": "2026-11-25T18:32:03Z",
-  "hash": "76117f8c843a0eb7"
+  "checked": "2026-11-26T02:09:24Z",
+  "hash": "12e2ec50de961ae6"
+ },
+ "pw_htb_events": {
+  "checked": "2026-11-26T02:09:24Z",
+  "hash": "9b1bef2000f05d13"
+ },
+ "pw_thm_blog": {
+  "checked": "2026-11-26T02:09:24Z",
+  "hash": "c03646a80de9e411"
  }
 }
