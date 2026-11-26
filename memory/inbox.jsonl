@@ -1,2 +1,2 @@
-{"received": "2026-11-26T01:33:24+00:00", "message_id": 3, "text": "/start", "reply_to_excerpt": "", "processed": false}
-{"received": "2026-11-26T01:33:28+00:00", "message_id": 4, "text": "hi", "reply_to_excerpt": "", "processed": false}
+{"received": "2026-11-26T01:33:24+00:00", "message_id": 3, "text": "/start", "reply_to_excerpt": "", "processed": true}
+{"received": "2026-11-26T01:33:28+00:00", "message_id": 4, "text": "hi", "reply_to_excerpt": "", "processed": true}
