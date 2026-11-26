@@ -1,11 +1,10 @@
 {
- "generated": "2026-11-26T07:04:24Z",
+ "generated": "2026-11-26T12:00:29Z",
  "date": "2026-11-26",
- "sources_ok": 34,
+ "sources_ok": 35,
  "sources_total": 36,
  "failed": [
-  "arxiv_ai",
-  "arxiv_sec_hci"
+  "hn"
  ],
  "known_gaps": [
   "X (Twitter)",
@@ -14,14 +13,14 @@
   "需登入的社群與付費牆內容"
  ],
  "totals": {
-  "fetched": 233,
-  "input": 273,
-  "seen": 24,
-  "recent": 21,
-  "dup_url": 33,
+  "fetched": 316,
+  "input": 356,
+  "seen": 16,
+  "recent": 19,
+  "dup_url": 43,
   "dup_title": 5,
   "seen_similar": 1,
-  "output": 190,
+  "output": 273,
   "shortlist": 40
  },
  "sources": {
@@ -30,10 +29,11 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -45,11 +45,12 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 5,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "shortlisted": 3,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -61,10 +62,11 @@
    "count": 5,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -75,11 +77,12 @@
    "ok": true,
    "count": 8,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -91,10 +94,11 @@
    "count": 14,
    "error": null,
    "shortlisted": 3,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -106,10 +110,11 @@
    "count": 10,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -120,11 +125,12 @@
    "ok": true,
    "count": 30,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -135,10 +141,11 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -148,10 +155,11 @@
    "ok": true,
    "count": 17,
    "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T07:04:24Z",
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -162,9 +170,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -174,10 +183,11 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -188,9 +198,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -201,9 +212,10 @@
    "count": 2,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -213,11 +225,12 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "shortlisted": 0,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -229,10 +242,11 @@
    "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -244,10 +258,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -259,10 +274,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -273,11 +289,12 @@
    "ok": true,
    "count": 2,
    "error": null,
-   "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "shortlisted": 1,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -289,10 +306,11 @@
    "count": 19,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -300,58 +318,62 @@
   },
   "hn": {
    "type": "hn",
-   "ok": true,
-   "count": 19,
-   "error": null,
-   "shortlisted": 3,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "ok": false,
+   "count": 0,
+   "error": "ReadTimeout: HTTPSConnectionPool(host='hn.algolia.com', port=443): Read timed out. (read timeout=15)",
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.6,
    "history": [
     false,
     true,
     true,
-    true
+    true,
+    false
    ]
   },
   "arxiv_ai": {
    "type": "arxiv",
-   "ok": false,
-   "count": 0,
-   "error": "HTTPError: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=cat%3Acs.AI+OR+cat%3Acs.CL&sortBy=submittedDate&sortOrder=descending&max_results=60",
-   "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.5,
+   "ok": true,
+   "count": 60,
+   "error": null,
+   "shortlisted": 5,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.6,
    "history": [
     false,
     true,
     true,
-    false
+    false,
+    true
    ]
   },
   "arxiv_sec_hci": {
    "type": "arxiv",
-   "ok": false,
-   "count": 0,
-   "error": "ReadTimeout: HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=15)",
-   "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.5,
+   "ok": true,
+   "count": 40,
+   "error": null,
+   "shortlisted": 2,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.6,
    "history": [
     false,
     true,
     true,
-    false
+    false,
+    true
    ]
   },
   "github_topics": {
    "type": "github",
    "ok": true,
-   "count": 58,
+   "count": 59,
    "error": null,
-   "shortlisted": 11,
-   "fetched": "2026-11-26T07:04:24Z",
+   "shortlisted": 10,
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -363,11 +385,12 @@
    "ok": true,
    "count": 1,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "shortlisted": 3,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -379,9 +402,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true,
     true,
@@ -394,10 +418,11 @@
    "count": 0,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
-   "success_rate": 0.75,
+   "fetched": "2026-11-26T12:00:29Z",
+   "success_rate": 0.8,
    "history": [
     false,
+    true,
     true,
     true,
     true
@@ -408,10 +433,11 @@
    "ok": true,
    "count": 3,
    "error": null,
-   "shortlisted": 2,
-   "fetched": "2026-11-26T07:04:24Z",
+   "shortlisted": 3,
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -422,9 +448,10 @@
    "count": 7,
    "error": null,
    "shortlisted": 1,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -435,9 +462,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -448,9 +476,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -461,9 +490,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -474,9 +504,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -486,21 +517,23 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
   "pw_offsec_home": {
    "type": "pagewatch",
    "ok": true,
-   "count": 0,
+   "count": 1,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true
    ]
   },
@@ -510,9 +543,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
@@ -523,9 +557,10 @@
    "count": 0,
    "error": null,
    "shortlisted": 0,
-   "fetched": "2026-11-26T07:04:24Z",
+   "fetched": "2026-11-26T12:00:29Z",
    "success_rate": 1.0,
    "history": [
+    true,
     true,
     true
    ]
