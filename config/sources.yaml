@@ -52,6 +52,9 @@ sources:
      url: "https://krebsonsecurity.com/feed/", why: "資安事件報導(新聞性,prior 較低)", note: "本機代理封鎖,未驗證"}
   - {id: cisa_kev, type: cisa_kev, enabled: true, prior: 0.5, max_age_days: 7, tags: [security],
      why: "已被實際利用的漏洞清單,權威且量小", note: "本機代理封鎖,未驗證"}
+  - {id: github_releases, type: github, enabled: true, prior: 1.2, tags: [release, tools],
+     watch_releases: [anthropics/claude-code, anthropics/claude-agent-sdk-python, google-gemini/gemini-cli, openai/codex, neovim/neovim],
+     why: "日常 CLI 工具新版本(與竄升 repo 分開,避免被擠出短名單)"}
   # --- 社群與研究 ---
   - {id: hn, type: hn, enabled: true, prior: 0.5, min_points: 120, hours: 24, tags: [community],
      why: "技術社群熱門,交叉驗證用", note: "本機代理封鎖,未驗證"}
@@ -63,7 +66,6 @@ sources:
      topics: [llm, penetration-testing],
      rising_days: 30, rising_min_stars: 200,
      rising_topics: [claude-code, agent-skills, claude-skills, claude-code-plugin, mcp-server, context-engineering, ai-agents],
-     watch_releases: [anthropics/claude-code, anthropics/claude-agent-sdk-python, google-gemini/gemini-cli, openai/codex, neovim/neovim],
      why: "新興開源專案 + 日常 CLI 工具的版本發布", note: "本機被工作階段政策擋下(403),Actions 內用內建 GITHUB_TOKEN,未驗證"}
   - {id: reddit, type: reddit, enabled: false, prior: 0.4, min_score: 80,
      subs: [ClaudeAI, LocalLLaMA, netsec, WritingWithAI],
