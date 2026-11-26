@@ -30,3 +30,8 @@
 ## 已知限制(2026-11-25)
 - ~~雲端環境網路受限~~:2026-11-26 使用者核准,Default 環境網路改為不限制;實測 arxiv.org、simonwillison.net 可讀,判斷層可驗證原文。
 - Reddit 在 GitHub Actions 與雲端 session 都回 403(Reddit 擋雲端 IP,非我方網路設定;其餘 20 個來源正常)。
+
+## D-006 常駐 session v2 + 台北日期(2026-11-26)
+- **問題**:(1) 07:43 台北觸發時 UTC 仍是前一天,判斷層以為今天已做過;(2) GitHub 排程的 collect 未準時執行;(3) 常駐 session 對話累積,每次喚醒重讀約 16 萬 token。
+- **改為**:日期一律用 Asia/Taipei(`collector/clock.py`);daily 發現資料超過 8 小時就本機補抓;新常駐 session「AI 情報官(常駐 v2)」每次把工作交給一次性子 agent,自己只轉貼結果,對話增長小。排程已改指向 v2;舊常駐 session 保留未封存。
+- **Telegram**:改用 HTML 格式送出(粗體、標題、連結),失敗自動改送純文字。
