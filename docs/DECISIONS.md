@@ -28,5 +28,5 @@
 - **重開條件**:把本 repo 加進雲端環境的 Repositories 後,可改回每次開新 session(較省 token、可開 App 推播)。
 
 ## 已知限制(2026-11-25)
-- 雲端環境網路受限:判斷層讀不到 arxiv.org、simonwillison.net 等原文,驗證只能到「單一來源」。放寬環境網路(要使用者在設定中核准)後改善。
-- Reddit 在 GitHub Actions 上被擋(其餘 20 個來源正常)。
+- ~~雲端環境網路受限~~:2026-11-26 使用者核准,Default 環境網路改為不限制;實測 arxiv.org、simonwillison.net 可讀,判斷層可驗證原文。
+- Reddit 在 GitHub Actions 與雲端 session 都回 403(Reddit 擋雲端 IP,非我方網路設定;其餘 20 個來源正常)。
