@@ -150,3 +150,10 @@ def test_select_per_source_cap():
         it.score = 10 - n
     out = select(items, 4, 0, random.Random(0), per_source_cap=2)
     assert [i.id for i in out] == ["a0", "a1", "b0"]
+
+
+def test_pagewatch_diff_summary():
+    from collector.sources.pagewatch import diff_summary
+    s = diff_summary("Plan A costs 10 dollars", "Plan A costs 5 dollars free trial")
+    assert "ADDED: 5" in s and "free trial" in s and "REMOVED: 10" in s
+    assert diff_summary("", "anything") == ""
