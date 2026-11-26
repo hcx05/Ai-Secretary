@@ -121,18 +121,18 @@ sources:
      why: "社群維護的 AI 工具免費額度與折扣清單,用來發現新管道;推送前回官網驗證", note: "第三方整理"}
   # --- 3C 與顯卡(2026-11-26 使用者:台灣+美國,中高階周邊明顯特價由系統自行判斷即推;watchlist 可選)---
   - {id: coolpc, type: coolpc, enabled: true, prior: 1.0, tags: [3c],
-     url: "https://www.coolpc.com.tw/evaluate.php", hot_pct: 20, hot_pct_limited: 15, deals_max: 15,
+     url: "https://www.coolpc.com.tw/evaluate.php", hot_pct: 40, min_saving: 10000, deals_max: 15,
      tiers: {"顯示卡": 12000, "處理器": 6000, "主機板": 5000, "記憶體": 2500, "固態硬碟": 2500, "螢幕": 6000,
              "鍵盤": 2500, "滑鼠": 2000, "耳機|喇叭": 3000, "電源供應器": 3000, "水冷": 3000, "散熱器": 1500,
              "NAS": 8000, "分享器": 3000, "USB週邊": 2000, "隨身": 2500},
-     why: "原價屋:中高階(依分類原價門檻)且折扣 ≥20%,或限時下殺 ≥15% 即推;watchlist 品項降價即推"}
+     why: "原價屋:中高階(依分類原價門檻)且六折以下,或省 NT$10000 以上即推;watchlist 品項降價即推"}
   - {id: slickdeals_hot, type: rss, enabled: true, prior: 1.0, max_age_days: 3, tags: [3c, us, hot3c],
      url: "https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1",
-     include_regex: "\\b(gpu|graphics card|rtx ?\\d{4}|radeon|geforce|rx ?\\d{4}|ssd|nvme|monitor|keyboard|mouse|headset|headphones|earbuds|ddr5|ram kit|cpu|ryzen \\d|intel core|router|wi-?fi \\d|mesh|nas|webcam|microphone|speakers?|power supply|psu|aio cooler|motherboard)\\b", exclude_regex: "\\b(laptop|chromebook|macbook|notebook|tv|watch|phone|tablet|ipad|gaming pc|desktop pc|prebuilt|refurbished|used)\\b", min_price: 100,
+     include_regex: "\\b(gpu|graphics card|rtx ?\\d{4}|radeon|geforce|rx ?\\d{4}|ssd|nvme|monitor|keyboard|mouse|headset|headphones|earbuds|ddr5|ram kit|cpu|ryzen \\d|intel core|router|wi-?fi \\d|mesh|nas|webcam|microphone|speakers?|power supply|psu|aio cooler|motherboard)\\b", exclude_regex: "\\b(laptop|chromebook|macbook|notebook|tv|watch|phone|tablet|ipad|gaming pc|desktop pc|prebuilt|refurbished|used)\\b", min_price: 100, deal_rule: {min_pct: 40, min_saving: 300},
      why: "美國首頁優惠(社群篩過的明顯特價),只留 $100 以上的周邊與零組件"}
   - {id: slickdeals_popular, type: rss, enabled: true, prior: 0.8, max_age_days: 3, tags: [3c, us, hot3c],
      url: "https://slickdeals.net/newsearch.php?mode=popdeals&searcharea=deals&searchin=first&rss=1",
-     include_regex: "\\b(gpu|graphics card|rtx ?\\d{4}|radeon|geforce|rx ?\\d{4}|ssd|nvme|monitor|keyboard|mouse|headset|headphones|earbuds|ddr5|ram kit|cpu|ryzen \\d|intel core|router|wi-?fi \\d|mesh|nas|webcam|microphone|speakers?|power supply|psu|aio cooler|motherboard)\\b", exclude_regex: "\\b(laptop|chromebook|macbook|notebook|tv|watch|phone|tablet|ipad|gaming pc|desktop pc|prebuilt|refurbished|used)\\b", min_price: 100,
+     include_regex: "\\b(gpu|graphics card|rtx ?\\d{4}|radeon|geforce|rx ?\\d{4}|ssd|nvme|monitor|keyboard|mouse|headset|headphones|earbuds|ddr5|ram kit|cpu|ryzen \\d|intel core|router|wi-?fi \\d|mesh|nas|webcam|microphone|speakers?|power supply|psu|aio cooler|motherboard)\\b", exclude_regex: "\\b(laptop|chromebook|macbook|notebook|tv|watch|phone|tablet|ipad|gaming pc|desktop pc|prebuilt|refurbished|used)\\b", min_price: 100, deal_rule: {min_pct: 40, min_saving: 300},
      why: "美國熱門優惠,只留 $100 以上的周邊與零組件"}
   - {id: slickdeals_watch, type: slickdeals_watch, enabled: true, prior: 1.5, max_age_days: 3, tags: [3c],
      why: "watchlist 品項在美國的新優惠"}

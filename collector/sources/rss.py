@@ -2,6 +2,8 @@ import re
 
 import feedparser
 
+from ..deals import passes
+
 from ..normalize import make_item
 
 
@@ -21,6 +23,8 @@ def fetch(src, ctx):
             continue  # broad feeds (e.g. all deals): keep only what matches
         if src.get("exclude_regex") and re.search(src["exclude_regex"], e.get("title", ""), re.I):
             continue
+        if src.get("deal_rule") and not passes(e.get("title", ""), **src["deal_rule"]):
+            continue  # not a big enough discount (or no reference price to tell)
         if src.get("min_price"):
             m = re.search(r"\$\s?([\d,]+(?:\.\d+)?)", e.get("title", ""))
             if not m or float(m.group(1).replace(",", "")) < src["min_price"]:

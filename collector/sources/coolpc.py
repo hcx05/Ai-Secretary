@@ -39,16 +39,17 @@ def fetch(src, ctx):
     now = ctx.now.strftime("%Y-%m-%dT%H:%M:%SZ")
     items = []
 
-    # 1) clear discounts on mid/high-end gear: category tier sets the minimum original price
+    # 1) big discounts on mid/high-end gear (category tier = minimum original price):
+    #    at least hot_pct off, or at least min_saving NT$ saved
     tiers = [(re.compile(k, re.I), v) for k, v in (src.get("tiers") or {}).items()]
-    hot, hot_limited = src.get("hot_pct", 20), src.get("hot_pct_limited", 15)
+    hot, min_saving = src.get("hot_pct", 40), src.get("min_saving", 10000)
     deals = []
     for e in rows:
         floor = next((v for k, v in tiers if k.search(e["category"])), None)
         if not e["old"] or floor is None or e["old"] < floor:
             continue
         pct = round(100 * (e["old"] - e["price"]) / e["old"])
-        if pct >= hot or (pct >= hot_limited and "下殺" in e["note"]):
+        if pct >= hot or e["old"] - e["price"] >= min_saving:
             deals.append((pct, e))
     deals.sort(key=lambda x: -x[0])
     uniq, keys = [], set()

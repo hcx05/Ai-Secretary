@@ -27,8 +27,8 @@ def test_watch_matching_rules():
 def test_colour_variants_count_once():
     from datetime import datetime, timezone
     from collector.http import Context, Resp
-    page = """<TR><TD class=t>鍵盤+鼠<TD><SELECT><OPTION value=1>羅技 G515(黑)/有線, $4790↘$3490 ★</OPTION>
-<OPTION value=2>羅技 G515(白)/有線, $4790↘$3490 ★</OPTION></SELECT>""".encode("cp950")
+    page = """<TR><TD class=t>鍵盤+鼠<TD><SELECT><OPTION value=1>羅技 G515(黑)/有線, $4790↘$2390 ★</OPTION>
+<OPTION value=2>羅技 G515(白)/有線, $4790↘$2390 ★</OPTION></SELECT>""".encode("cp950")
     from collector.sources.coolpc import fetch
     ctx = Context("c", lambda *a, **k: Resp(page), datetime(2026, 11, 26, tzinfo=timezone.utc), {}, None)
     out = fetch({"id": "c", "url": "u", "tiers": {"鍵盤": 2500}, "watchlist": "/nonexistent"}, ctx)
