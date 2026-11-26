@@ -63,5 +63,26 @@ sources:
      url: "https://one.google.com/about/google-ai-plans/", name: "Google AI plans",
      why: "Google AI Pro 方案與學生優惠變動", note: "本機代理封鎖,未驗證"}
 
+  # --- 資安學習平台:活動、優惠、重要更新(2026-11-26 使用者要求)---
+  - {id: htb_blog, type: rss, enabled: true, prior: 1.5, tags: [security, platform],
+     url: "https://www.hackthebox.com/blog/rss.xml", why: "Hack The Box 官方:活動、新 lab、方案與優惠", note: "2026-11-26 實測 200"}
+  - {id: offsec_blog, type: rss, enabled: true, prior: 1.5, tags: [security, platform],
+     url: "https://www.offsec.com/feed/", why: "OffSec 官方:認證(OSCP 等)、課程更新、促銷", note: "2026-11-26 實測 200"}
+  - {id: portswigger_blog, type: rss, enabled: true, prior: 1.5, tags: [security, platform],
+     url: "https://portswigger.net/blog/rss", why: "PortSwigger 官方:Burp Suite、Web Security Academy 更新與活動", note: "2026-11-26 實測 200"}
+  - {id: pw_thm_blog, type: pagewatch, enabled: true, prior: 1.5, tags: [security, platform],
+     url: "https://tryhackme.com/resources/blog", name: "TryHackMe blog",
+     why: "TryHackMe 無 RSS,以頁面變動偵測新文章(活動、優惠、新路徑)", note: "2026-11-26 實測兩次雜湊一致"}
+  - {id: pw_htb_events, type: pagewatch, enabled: true, prior: 1.5, tags: [security, platform],
+     url: "https://www.hackthebox.com/events", name: "Hack The Box events",
+     why: "HTB 活動與 CTF 頁面變動", note: "2026-11-26 實測兩次雜湊一致"}
+  # --- 免費資源(不限學生)---
+  - {id: pw_gcp_free, type: pagewatch, enabled: true, prior: 1.5, tags: [deals, free],
+     url: "https://cloud.google.com/free", name: "Google Cloud free program",
+     why: "Google Cloud 免費額度與試用條件變動", note: "2026-11-26 實測兩次雜湊一致"}
+  - {id: pw_aws_free, type: pagewatch, enabled: true, prior: 1.2, tags: [deals, free],
+     url: "https://aws.amazon.com/free/", name: "AWS Free Tier",
+     why: "AWS 免費方案變動", note: "2026-11-26 實測兩次雜湊一致;Azure 學生頁每次內容不同,未加"}
+
 # 判斷層發現的好來源先放這裡,weekly 決定是否轉正(格式同 sources)。
 candidates: []

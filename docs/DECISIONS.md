@@ -35,3 +35,9 @@
 - **問題**:(1) 07:43 台北觸發時 UTC 仍是前一天,判斷層以為今天已做過;(2) GitHub 排程的 collect 未準時執行;(3) 常駐 session 對話累積,每次喚醒重讀約 16 萬 token。
 - **改為**:日期一律用 Asia/Taipei(`collector/clock.py`);daily 發現資料超過 8 小時就本機補抓;新常駐 session「AI 情報官(常駐 v2)」每次把工作交給一次性子 agent,自己只轉貼結果,對話增長小。排程已改指向 v2;舊常駐 session 保留未封存。
 - **Telegram**:改用 HTML 格式送出(粗體、標題、連結),失敗自動改送純文字。
+
+## D-007 優惠範圍、資安平台、簡報格式(2026-11-26,使用者指示)
+- **來源**:新增 HTB blog、OffSec、PortSwigger blog(RSS),TryHackMe blog、HTB events、Google Cloud 免費方案、AWS Free Tier(頁面變動偵測)。Azure 學生頁每次內容不同會誤報,未加;TryHackMe 無 RSS。
+- **權重**:`deals`、`free_resources` 升到 3.0,關鍵字不限學生;新增 `security_platforms` 3.0。
+- **格式**:每則去掉「為什麼重要/與你有關」標籤、「建議行動」、自我關聯評語;可信度只寫高/中/低。簡報新增「優惠與活動」一節,不占主要情報名額。
+- **限制**:頁面變動偵測第一次只建基準,不會報出加入前已存在的內容。

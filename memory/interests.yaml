@@ -19,13 +19,17 @@ topics:
     desc: 多模態、即時語音、視覺、影片理解
     keywords: [multimodal, realtime voice, speech, vision, video understanding, 多模態, 即時語音, 語音, 視覺, 影片理解]
   deals:
-    weight: 2.5
-    desc: AI 訂閱與學生優惠、免費額度(需對照已有訂閱)
-    keywords: [student, discount, free tier, free credits, pricing, subscription, pro plan, student developer pack, 優惠, 學生, 免費額度, 訂閱, 方案, 降價]
+    weight: 3.0
+    desc: 優惠、促銷、免費額度(不限學生;AI 訂閱類需對照已有訂閱)
+    keywords: [student, discount, free tier, free credits, free trial, credits, pricing, subscription, pro plan, student developer pack, promo, promotion, sale, black friday, cyber monday, coupon, giveaway, voucher, 優惠, 學生, 免費額度, 免費試用, 訂閱, 方案, 降價, 折扣, 特價, 限時, 白嫖, 黑色星期五]
   free_resources:
-    weight: 1.5
-    desc: 免費 API、研究額度、雲端運算
-    keywords: [free api, free gpu, research credits, colab, free compute, 免費 API, 免費 GPU, 研究資源]
+    weight: 3.0
+    desc: 白嫖資源:免費 API、雲端額度(Google Cloud 等)、研究額度、免費運算
+    keywords: [free api, free gpu, research credits, colab, free compute, google cloud, gcp, aws free tier, azure credits, oracle cloud free tier, cloud credits, startup credits, always free, 免費 API, 免費 GPU, 研究資源, 雲端額度, 免費資源]
+  security_platforms:
+    weight: 3.0
+    desc: 資安學習平台(HTB、TryHackMe、PortSwigger、OffSec 等)的活動、優惠、重要更新
+    keywords: [hack the box, hackthebox, htb, tryhackme, thm, offsec, oscp, osep, oswe, oswa, portswigger, burp suite, burp, web security academy, pro labs, pwn.college, picoctf, 認證考試]
   security_research:
     weight: 2.5
     desc: 漏洞與攻防研究、滲透測試、紅隊

@@ -103,7 +103,7 @@ tests/                       # pytest,全部離線(fixtures),不打網路
 順序:
 1. 讀 `memory/profile.md`、`now.md`、`interests.yaml`、`tracking.yaml`、近 7 天 `feedback.jsonl`、今天 shortlist、`coverage.json`。不讀其他大檔。
 2. **分流**:每則判為 `推送 / 追蹤 / 可忽略(值得一提) / 丟棄`,依 PRD §5.3 的因素,用一句話寫理由。
-3. **驗證**:只對要推送的項目做;重要事實要找原始來源,能交叉驗證就驗證。標 `已驗證 / 單一來源 / 未驗證`。
+3. **驗證**:只對要推送的項目做;重要事實要找原始來源,能交叉驗證就驗證。可信度標 `高 / 中 / 低`(D-007)。
 4. **深挖**:最多 `deep_dive_max` 則(預設 2),只挑「價值高且不確定性高」的。
 5. **長期追蹤**:檢查 `tracking.yaml` 中今天到期的項目(pagewatch 已自動偵測變化);狀態有實質變化才進簡報。
 6. **寫簡報** `briefs/YYYY-MM-DD.md`:
