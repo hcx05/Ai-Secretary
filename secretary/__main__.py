@@ -15,6 +15,7 @@ from .feedback import VERDICTS, append_feedback, apply_feedback
 from .interests import adjust_weight
 from .seen import add_seen, entries_from_shortlist
 from .tracking import due_items
+from collector.clock import local_day
 
 MEM = Path(__file__).resolve().parent.parent / "memory"
 
@@ -37,7 +38,7 @@ def main(argv=None):
     i.add_argument("topic")
     i.add_argument("delta", type=float)
     t = sub.add_parser("tracking-due")
-    t.add_argument("--today", default=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+    t.add_argument("--today", default=local_day())
     a = ap.parse_args(argv)
 
     if a.cmd == "feedback":

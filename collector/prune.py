@@ -5,6 +5,7 @@ import re
 import shutil
 from datetime import date, datetime, timedelta
 from pathlib import Path
+from collector.clock import local_day
 
 KEEP_DAYS = 14
 
@@ -36,7 +37,7 @@ def main():
     ap.add_argument("--data", default="data")
     ap.add_argument("--days", type=int, default=KEEP_DAYS)
     a = ap.parse_args()
-    for r in prune(Path(a.data), datetime.utcnow().date(), a.days):
+    for r in prune(Path(a.data), datetime.strptime(local_day(), "%Y-%m-%d").date(), a.days):
         print("pruned", r)
 
 

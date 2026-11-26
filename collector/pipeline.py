@@ -15,6 +15,7 @@ from .models import Item
 from .normalize import parse_iso
 from .score import score_items, select
 from .sources import FETCHERS
+from collector.clock import local_day
 
 
 def load_yaml(path, default=None):
@@ -65,7 +66,7 @@ def fetch_source(src: dict, http, now: datetime, state: dict, token: str | None,
 def run(*, sources_path, interests_path, scoring_path, budget_path, seen_path, data_dir, http,
         now: datetime, rng: random.Random, github_token: str | None = None) -> dict:
     data_dir = Path(data_dir)
-    day = now.strftime("%Y-%m-%d")
+    day = local_day(now)
     now_iso = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     cfg = load_yaml(sources_path, {}) or {}
     sources = [s for s in cfg.get("sources", []) if s.get("enabled", True)]

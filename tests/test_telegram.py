@@ -40,3 +40,14 @@ def test_noop_without_creds(monkeypatch, tmp_path):
     f.write_text("hi")
     assert telegram.send(str(f)) == 0
     assert telegram.inbox() == 0
+
+
+def test_md_to_html():
+    from notify.telegram import md_to_html, md_to_plain
+    src = "# 標題\n**1. A & B <x>** see `cmd` [doc](https://e.com/a?b=1&c=2)"
+    h = md_to_html(src)
+    assert h.startswith("<b>標題</b>")
+    assert "<b>1. A &amp; B &lt;x&gt;</b>" in h
+    assert "<code>cmd</code>" in h
+    assert '<a href="https://e.com/a?b=1&amp;c=2">doc</a>' in h
+    assert md_to_plain("**x** `y`") == "x y"

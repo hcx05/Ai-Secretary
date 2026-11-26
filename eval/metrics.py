@@ -13,6 +13,7 @@ from pathlib import Path
 from collector.dedupe import title_tokens, similar
 from collector.pipeline import read_jsonl
 from secretary.feedback import POSITIVE
+from collector.clock import local_day
 
 ROOT = Path(__file__).resolve().parent.parent
 NO_CHANGE = "今日無重大變化"
@@ -106,7 +107,7 @@ def render_report(m: dict) -> str:
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=7)
-    ap.add_argument("--today", default=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+    ap.add_argument("--today", default=local_day())
     ap.add_argument("--root", default=str(ROOT))
     ap.add_argument("--out")
     a = ap.parse_args(argv)

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+from collector.clock import local_day
 
 
 def load_seen(path) -> list[dict]:
@@ -15,7 +16,7 @@ def load_seen(path) -> list[dict]:
 def add_seen(path, entries: list[dict], date: str | None = None) -> int:
     """Append entries ({"id","url","title","source_id","tags"}) whose id is not already recorded. Returns count added."""
     known = {e["id"] for e in load_seen(path)}
-    day = date or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    day = date or local_day()
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     n = 0

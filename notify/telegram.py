@@ -9,8 +9,10 @@ If either is missing, every command is a no-op that exits 0.
 """
 from __future__ import annotations
 
+import html
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -81,6 +83,30 @@ def split_message(text: str, limit: int = MAX_LEN) -> list[str]:
     return [c for c in chunks if c.strip()]
 
 
+_BOLD = re.compile(r"\*\*(.+?)\*\*")
+_CODE = re.compile(r"`([^`\n]+)`")
+_LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^)\s]+)\)")
+_HEAD = re.compile(r"^#{1,6}\s+(.*)$", re.M)
+
+
+def md_to_html(text: str) -> str:
+    """Minimal Markdown -> Telegram HTML: headings, **bold**, `code`, [text](url)."""
+    out = html.escape(text, quote=False)
+    out = _HEAD.sub(r"<b>\1</b>", out)
+    out = _BOLD.sub(r"<b>\1</b>", out)
+    out = _CODE.sub(r"<code>\1</code>", out)
+    out = _LINK.sub(lambda m: f'<a href="{m.group(2).replace(chr(34), "%22")}">{m.group(1)}</a>', out)
+    return out
+
+
+def md_to_plain(text: str) -> str:
+    """Fallback: strip Markdown markers."""
+    out = _HEAD.sub(r"\1", text)
+    out = _BOLD.sub(r"\1", out)
+    out = _CODE.sub(r"\1", out)
+    return _LINK.sub(r"\1 \2", out)
+
+
 def send(path: str) -> int:
     creds = _creds()
     if not creds:
@@ -91,8 +117,13 @@ def send(path: str) -> int:
     for i, part in enumerate(parts):
         if len(parts) > 1:
             part = f"({i + 1}/{len(parts)})\n{part}"
-        # plain text: no parse_mode, so Markdown in the brief can't break delivery
-        _call(token, "sendMessage", chat_id=chat, text=part, disable_web_page_preview=True)
+        try:
+            _call(token, "sendMessage", chat_id=chat, text=md_to_html(part),
+                  parse_mode="HTML", disable_web_page_preview=True)
+        except RuntimeError:
+            # malformed markup must never block delivery
+            _call(token, "sendMessage", chat_id=chat, text=md_to_plain(part),
+                  disable_web_page_preview=True)
     print(f"telegram: sent {path} in {len(parts)} message(s)")
     return 0
 

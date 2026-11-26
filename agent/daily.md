@@ -5,6 +5,8 @@
 ## 0. 前置
 1. 讀 `config/budget.yaml`,後面所有上限都以它為準。
 2. 一律在 `main` 上工作:`git checkout main && git pull --rebase origin main`,確認有最新的 `data/`。(使用者已授權直接推 `main`;不要開其他分支或 PR。)
+3. **「今天」一律用台北時間**:`TZ=Asia/Taipei date +%F`。簡報檔名、seen、tracking 都用這個日期。今天的 `briefs/<今天>.md` 已存在 → 只在有新短名單或新回覆時補一節「稍晚更新」,否則結束。
+4. **資料太舊就自己抓**:若 `data/coverage.json` 的 `generated` 超過 8 小時前(GitHub 排程可能延誤),先執行 `pip install -q -r requirements.txt && python -m collector && python -m collector.prune`,再 `git add -A data && git commit -m "collect: local fallback"`。抓取失敗不阻擋簡報,在盲區行註明。
 
 ## 1. 讀取(只讀這些,不讀其他大檔)
 `memory/profile.md`、`memory/now.md`、`memory/interests.yaml`、`memory/tracking.yaml`、近 7 天 `memory/feedback.jsonl`、`data/shortlist/` 中最新一份(≤ `shortlist_max` 則)、`data/coverage.json`。
