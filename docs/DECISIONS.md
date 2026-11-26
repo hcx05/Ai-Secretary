@@ -66,3 +66,4 @@
 - **找新來源**:weekly 4.5 搜尋尚未監控的官方來源,最多 5 個列為候選;使用者回「加 N」才轉正。
 - **代價**:Actions 用量約每天 12 次 × 2–3 分鐘(私有 repo 免費額度每月 2000 分鐘內)。
 - **仍抓不到**:只在 Discord 或 X 公告的消息。
+- **2026-11-26 12:00 UTC 已恢復(外部觸發)**:使用者設定 cron-job.org 每 2 小時(台北整點偶數時)呼叫 `collect.yml` 的 workflow_dispatch,token 為 fine-grained、只限本 repo、只有 Actions 讀寫;測試回 204,12:00 UTC 實際觸發成功。token 存在 cron-job.org,不在 repo;到期或外洩時到 GitHub 撤銷重建。
