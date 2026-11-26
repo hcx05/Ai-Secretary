@@ -45,3 +45,13 @@ def test_watchlist_hit_alerts_without_keywords():
              summary="ASUS ...")
     out = find_alerts([w], set(), NOW)
     assert out and "NT$18990" in out[0]["snippet"]
+
+
+def test_hot3c_grouped_into_one_capped_message():
+    from notify.flash import HOT3C_MAX, build_messages
+    deals = [item(id=f"h{i}", source_id="coolpc", tags=["3c", "hot3c"], title=f"deal {i}", summary="")
+             for i in range(HOT3C_MAX + 3)]
+    urgent = item(id="u", summary="ADDED: free for 24 hours")
+    alerts = find_alerts(deals + [urgent], set(), NOW)
+    msgs = build_messages(alerts, {})
+    assert len(msgs) == 2 and msgs[1][0].startswith("🛒") and len(msgs[1][1]) == HOT3C_MAX

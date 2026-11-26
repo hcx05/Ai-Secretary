@@ -12,6 +12,7 @@ from ..watchlist import load_watchlist, matches
 
 ROW = re.compile(r"<TD class=t>([^<]*).*?<SELECT[^>]*>(.*?)</SELECT>", re.S | re.I)
 OPT = re.compile(r"<OPTION(?![^>]*disabled)[^>]*>([^<]+)", re.I)
+COLOUR = re.compile(r"[(（](黑|白|粉|藍|灰|銀|紅|綠|紫|黃|橘)[色]?[)）]")
 PRICE = re.compile(r"^(.*?),\s*\$(\d{2,7})(?:↘\$(\d{2,7}))?(.*)$")
 
 
@@ -38,20 +39,28 @@ def fetch(src, ctx):
     now = ctx.now.strftime("%Y-%m-%dT%H:%M:%SZ")
     items = []
 
-    # 1) category deals: biggest discounts in the categories we care about
-    cats = re.compile(src.get("categories", "."), re.I)
-    min_pct, min_price = src.get("min_discount_pct", 15), src.get("min_price", 1000)
+    # 1) clear discounts on mid/high-end gear: category tier sets the minimum original price
+    tiers = [(re.compile(k, re.I), v) for k, v in (src.get("tiers") or {}).items()]
+    hot, hot_limited = src.get("hot_pct", 20), src.get("hot_pct_limited", 15)
     deals = []
     for e in rows:
-        if e["old"] and e["price"] >= min_price and cats.search(e["category"]):
-            pct = round(100 * (e["old"] - e["price"]) / e["old"])
-            if pct >= min_pct:
-                deals.append((pct, e))
+        floor = next((v for k, v in tiers if k.search(e["category"])), None)
+        if not e["old"] or floor is None or e["old"] < floor:
+            continue
+        pct = round(100 * (e["old"] - e["price"]) / e["old"])
+        if pct >= hot or (pct >= hot_limited and "下殺" in e["note"]):
+            deals.append((pct, e))
     deals.sort(key=lambda x: -x[0])
-    for pct, e in deals[: src.get("deals_max", 15)]:
+    uniq, keys = [], set()
+    for pct, e in deals:  # colour variants of one product at one price count once
+        k = (COLOUR.sub("", e["name"]), e["price"])
+        if k not in keys:
+            keys.add(k)
+            uniq.append((pct, e))
+    for pct, e in uniq[: src.get("deals_max", 15)]:
         items.append(make_item(
             src["id"], src["url"], f"原價屋 {e['category']}:{e['name']} NT${e['price']},原價 NT${e['old']},-{pct}%",
-            summary=e["note"], published=now, fetched=now, tags=src.get("tags", []) + ["tw"],
+            summary=e["note"], published=now, fetched=now, tags=src.get("tags", []) + ["tw", "hot3c"],
             id_key=f"coolpc:{e['name']}:{e['price']}", html_summary=False))
 
     # 2) watchlist: alert when the lowest matching price goes below what we saw last time

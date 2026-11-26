@@ -22,3 +22,14 @@ def test_watch_matching_rules():
     assert not matches(w, "Acer laptop RTX 5070")
     assert not matches(w, "華碩 RTX5070 整機", "酷！PC 套裝產線")
     assert matches(w, "華碩 DUAL-RTX5070-O12G", "顯示卡VGA")
+
+
+def test_colour_variants_count_once():
+    from datetime import datetime, timezone
+    from collector.http import Context, Resp
+    page = """<TR><TD class=t>鍵盤+鼠<TD><SELECT><OPTION value=1>羅技 G515(黑)/有線, $4790↘$3490 ★</OPTION>
+<OPTION value=2>羅技 G515(白)/有線, $4790↘$3490 ★</OPTION></SELECT>""".encode("cp950")
+    from collector.sources.coolpc import fetch
+    ctx = Context("c", lambda *a, **k: Resp(page), datetime(2026, 11, 26, tzinfo=timezone.utc), {}, None)
+    out = fetch({"id": "c", "url": "u", "tiers": {"鍵盤": 2500}, "watchlist": "/nonexistent"}, ctx)
+    assert len(out) == 1 and "hot3c" in out[0].tags

@@ -22,6 +22,8 @@ from collector.normalize import parse_iso
 
 FLASH_TAGS = {"platform", "deals", "free"}
 ALWAYS = "watchlist"  # an item the user asked to watch: any new hit is worth a ping
+HOT3C = "hot3c"       # mid/high-end gear with a clear discount (decided by the fetcher's thresholds)
+HOT3C_MAX = 8         # per run, grouped into one message
 MAX_AGE = timedelta(hours=48)
 URGENT = re.compile(
     r"free for (the next )?\d{1,4} (hours?|days?)|for (the next )?24 hours|limited[- ]time|"
@@ -48,11 +50,12 @@ def find_alerts(items: list[dict], sent: set[str], now: datetime) -> list[dict]:
     out = []
     for it in items:
         tags = set(it.get("tags", []))
-        if it.get("id") in sent or not (FLASH_TAGS | {ALWAYS}) & tags:
+        if it.get("id") in sent or not (FLASH_TAGS | {ALWAYS, HOT3C}) & tags:
             continue
-        if ALWAYS in tags:
+        if ALWAYS in tags or HOT3C in tags:
             out.append({"id": it["id"], "source_id": it.get("source_id"), "url": it.get("url"),
-                        "snippet": f"{it.get('title', '')} {it.get('summary', '')}".strip()[:400]})
+                        "snippet": f"{it.get('title', '')} {it.get('summary', '')}".strip()[:400],
+                        "group": HOT3C if HOT3C in tags and ALWAYS not in tags else None})
             continue
         pub = parse_iso(it.get("published"))
         if pub is not None and now - pub > MAX_AGE:
@@ -70,6 +73,17 @@ def find_alerts(items: list[dict], sent: set[str], now: datetime) -> list[dict]:
 def format_alert(a: dict, names: dict[str, str]) -> str:
     name = names.get(a["source_id"], a["source_id"])
     return f"⚡ <b>{html.escape(name)}</b>\n{html.escape(a['snippet'])}\n{html.escape(a['url'] or '')}"
+
+
+def build_messages(alerts: list[dict], names: dict[str, str]) -> list[tuple[str, list[str]]]:
+    """One message per urgent alert; 3C deals grouped into a single message (at most HOT3C_MAX lines).
+    Deals beyond the cap stay unsent and can go out next run or in the daily brief."""
+    msgs = [(format_alert(a, names), [a["id"]]) for a in alerts if a.get("group") != HOT3C]
+    deals = [a for a in alerts if a.get("group") == HOT3C][:HOT3C_MAX]
+    if deals:
+        lines = [f"• {html.escape(a['snippet'][:160])}\n  {html.escape(a['url'] or '')}" for a in deals]
+        msgs.append(("🛒 <b>3C 特價</b>\n" + "\n".join(lines), [a["id"] for a in deals]))
+    return msgs
 
 
 def main(argv=None) -> int:
@@ -95,25 +109,24 @@ def main(argv=None) -> int:
             if f.stem in flash_ids:
                 it["tags"] = sorted(set(it.get("tags", [])) | src_tags[f.stem])  # feeds may not carry source tags
                 items.append(it)
-            elif ALWAYS in it.get("tags", []):
-                items.append(it)  # watchlist hits from any source (3C price drops)
+            elif {ALWAYS, HOT3C} & set(it.get("tags", [])):
+                items.append(it)  # 3C: watchlist hits and clear deals, from any source
     alerts = find_alerts(items, sent, now)
     if not alerts:
         print("flash: nothing urgent")
         return 0
     if a.dry_run:
-        for x in alerts:
-            print(format_alert(x, names))
+        for text, _ in build_messages(alerts, names):
+            print(text, end="\n\n")
         return 0
     from notify.telegram import _call, _creds
     creds = _creds()
     if not creds:
         return 0
     token, chat = creds
-    for x in alerts:
-        _call(token, "sendMessage", chat_id=chat, text=format_alert(x, names), parse_mode="HTML",
-              disable_web_page_preview=True)
-        sent.add(x["id"])
+    for text, ids in build_messages(alerts, names):
+        _call(token, "sendMessage", chat_id=chat, text=text, parse_mode="HTML", disable_web_page_preview=True)
+        sent.update(ids)
     sent_path.write_text(json.dumps(sorted(sent)[-2000:], indent=0) + "\n")
     print(f"flash: sent {len(alerts)}")
     return 0

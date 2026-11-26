@@ -166,3 +166,14 @@ def test_min_interval_skips_and_keeps_last_fetch():
     cov = build_coverage({"ax": {"type": "arxiv", "ok": True, "count": 0, "error": "skipped", "skipped": True}},
                          prev, "2026-11-26T08:00:00Z", "2026-11-26")
     assert cov["sources"]["ax"]["fetched"] == "2026-11-26T06:00:00Z" and cov["sources"]["ax"]["history"] == [True]
+
+
+def test_rss_include_exclude_min_price():
+    from collector.http import Resp
+    xml = b"""<rss><channel><item><title>LG 27in OLED Monitor $599</title><link>https://a/1</link></item>
+    <item><title>Gaming Laptop RTX 5070 $1299</title><link>https://a/2</link></item>
+    <item><title>Logitech Mouse $19</title><link>https://a/3</link></item>
+    <item><title>Soup 8-pack $9</title><link>https://a/4</link></item></channel></rss>"""
+    out = fetch_source({"id": "s", "type": "rss", "url": "u", "include_regex": r"\b(monitor|mouse|rtx ?\d{4})\b",
+                        "exclude_regex": r"\blaptop\b", "min_price": 100}, lambda *a, **k: Resp(xml), NOW, {}, None, 14)
+    assert [i.title for i in out["items"]] == ["LG 27in OLED Monitor $599"]
