@@ -1,5 +1,6 @@
 # 預評分參數(無 LLM)。score = 主題權重 + 來源 prior + 新鮮度 + 熱度 + 多來源 - 近似已推送
 main_k: 32          # 依分數取前 N 則
+per_source_cap: 10  # 主要名額中每個來源最多幾則(GitHub 竄升 repo 量大,避免擠掉其他來源)
 explore_k: 8        # 其餘跨來源隨機抽 N 則(約 20% 探索);由 weekly 依回饋調整
 max_age_days: 14    # 超過此天數的項目直接捨棄(單一來源可用 max_age_days 覆寫)
 title_hit: 1.0      # 關鍵字命中標題的倍率

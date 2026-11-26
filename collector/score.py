@@ -78,10 +78,19 @@ def score_items(items: list[Item], interests: dict, cfg: dict, now: datetime, pr
         it.score_reasons = "; ".join(reasons) or "無命中"
 
 
-def select(items: list[Item], main_k: int, explore_k: int, rng: random.Random) -> list[Item]:
-    """Top main_k by score, plus explore_k sampled from the rest round-robin across sources."""
+def select(items: list[Item], main_k: int, explore_k: int, rng: random.Random,
+           per_source_cap: int | None = None) -> list[Item]:
+    """Top main_k by score (at most per_source_cap per source, so one busy source cannot
+    crowd out the rest), plus explore_k sampled from the rest round-robin across sources."""
     ranked = sorted(items, key=lambda i: (-i.score, -(i.engagement or 0), i.id))
-    main, rest = ranked[:main_k], ranked[main_k:]
+    main, rest, per = [], [], {}
+    for it in ranked:
+        n = per.get(it.source_id, 0)
+        if len(main) < main_k and (not per_source_cap or n < per_source_cap):
+            main.append(it)
+            per[it.source_id] = n + 1
+        else:
+            rest.append(it)
     for it in main:
         it.slot = "main"
     by_src: dict[str, list[Item]] = {}

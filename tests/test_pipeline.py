@@ -138,3 +138,15 @@ def test_github_rising_query_and_tag():
     assert out["ok"] and out["count"] == 1
     assert "stars:>=200" in seen_q[0] and "topic:agent-skills" in seen_q[0]
     assert "rising" in out["items"][0].tags
+
+
+def test_select_per_source_cap():
+    import random
+    from collector.models import Item
+    from collector.score import select
+    items = [Item.from_dict({"id": f"a{i}", "source_id": "a", "url": f"u{i}", "title": f"t{i}"}) for i in range(6)]
+    items += [Item.from_dict({"id": "b0", "source_id": "b", "url": "ub", "title": "tb"})]
+    for n, it in enumerate(items):
+        it.score = 10 - n
+    out = select(items, 4, 0, random.Random(0), per_source_cap=2)
+    assert [i.id for i in out] == ["a0", "a1", "b0"]

@@ -98,7 +98,7 @@ def run(*, sources_path, interests_path, scoring_path, budget_path, seen_path, d
     cap = int(budget.get("shortlist_max", 40))
     explore_k = min(int(scoring.get("explore_k", 8)), cap)
     main_k = min(int(scoring.get("main_k", 32)), cap - explore_k)
-    shortlist = select(kept, main_k, explore_k, rng)
+    shortlist = select(kept, main_k, explore_k, rng, scoring.get("per_source_cap"))
     write_jsonl(today_file, [i.to_dict() for i in shortlist])
 
     per_src: dict[str, int] = {}
