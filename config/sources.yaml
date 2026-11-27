@@ -71,9 +71,9 @@ sources:
      subs: [ClaudeAI, LocalLLaMA, netsec, WritingWithAI],
      why: "使用者實測心得與社群反應", note: "2026-11-26 停用:雲端一律被擋,且屬二手資訊;改直接盯官方來源(D-011)"}
   # --- 長期追蹤:頁面變更偵測 ---
-  - {id: pw_github_student_pack, type: pagewatch, enabled: true, prior: 1.5, tags: [deals, student],
+  - {id: pw_github_student_pack, type: pagewatch, enabled: false, prior: 1.5, tags: [deals, student],
      url: "https://education.github.com/pack", name: "GitHub Student Developer Pack",
-     why: "學生優惠清單變動(免費額度、AI 工具)", note: "本機代理封鎖,未驗證"}
+     why: "學生優惠清單變動(免費額度、AI 工具)", note: "2026-11-27 停用:使用者不需要;頁面是長清單且每次重排,一直誤報"}
   - {id: pw_anthropic_pricing, type: pagewatch, enabled: true, prior: 1.5, tags: [deals, pricing],
      url: "https://www.anthropic.com/pricing", name: "Anthropic pricing",
      why: "Claude 方案與限額變動(使用者主力訂閱)", ignore_regex: "\\b[0-9a-f]{8,}\\b",
