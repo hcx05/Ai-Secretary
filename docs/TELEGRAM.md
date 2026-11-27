@@ -24,3 +24,8 @@
 1. 到 https://aistudio.google.com/apikey 建立 API key(免費層即可)。
 2. GitHub repo → Settings → Secrets and variables → Actions → New repository secret,名稱 `GEMINI_API_KEY`,貼上 key。
 3. 下次抓取時,即時推播會先經 Gemini 過濾弱優惠並改寫成繁中一句。沒設定也能用,只是文字是原文那一句。
+
+## 選用:即時推播改用 Claude 判斷(優先於 Gemini)
+1. 在自己電腦(已安裝並登入 Claude Code)執行 `claude setup-token`,複製產生的 token。
+2. GitHub repo → Settings → Secrets and variables → Actions → New repository secret,名稱 `CLAUDE_CODE_OAUTH_TOKEN`,貼上 token。
+3. 之後每次抓到候選優惠,Claude 會先判斷是否真的是大優惠,並改寫成繁中一句才推播。

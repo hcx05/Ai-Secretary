@@ -99,3 +99,13 @@ def test_refine_failure_falls_back(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "k")
     alerts = [{"id": "a", "source_id": "s", "url": "u", "snippet": "Save $550"}]
     assert flash.refine(alerts, {}) == alerts
+
+
+def test_refine_prefers_claude(monkeypatch):
+    from notify import flash
+    monkeypatch.setenv("CLAUDE_CODE_OAUTH_TOKEN", "t")
+    monkeypatch.setenv("GEMINI_API_KEY", "k")
+    monkeypatch.setattr(flash, "_ask_claude", lambda p: '```json\n[{"id": "a", "send": true, "zh": "Hack Smarter 新靶場限時免費 24 小時"}]\n```')
+    monkeypatch.setattr(flash, "_ask_gemini", lambda p, k: (_ for _ in ()).throw(AssertionError("gemini used")))
+    out = flash.refine([{"id": "a", "source_id": "s", "url": "u", "snippet": "free for 24 hours"}], {})
+    assert out[0]["zh"] == "Hack Smarter 新靶場限時免費 24 小時"

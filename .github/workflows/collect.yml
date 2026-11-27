@@ -40,8 +40,14 @@ jobs:
         run: python -m collector
       - name: Prune old data
         run: python -m collector.prune
-      - name: Instant alerts for big offers (no-op without secrets; Gemini refinement optional)
+      - name: Claude Code for alert judgment (only if the owner set CLAUDE_CODE_OAUTH_TOKEN)
         env:
+          HAS_CLAUDE: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+        run: |
+          if [ "$HAS_CLAUDE" = "true" ]; then npm install -g @anthropic-ai/claude-code@2.1.332; fi
+      - name: Instant alerts for big offers (no-op without secrets; Claude or Gemini refinement optional)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

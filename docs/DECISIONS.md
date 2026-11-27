@@ -107,3 +107,4 @@
 - **規則**:只剩強訊號才推:六折以下(40% off 以上)、省 US$300 以上、「free for N hours/days」、「N free labs」、用量加倍、中文限時免費或六折以下。拿掉 free access、free trial、coupon、voucher、Black Friday、limited time、免費、折扣等弱字眼。
 - **格式**:標題列「平台|優惠類型」(例:OffSec|省 US$550),內文取命中的那一句,不再擷取一段亂切的文字。
 - **Gemini(選用)**:repo secret `GEMINI_API_KEY` 存在時,推播前交給 Gemini 免費層判斷是否真的是大優惠,並改寫成 40 字內的繁中一句;失敗或未設定就用規則版。外部原文明確標為資料,只回 JSON。注意:免費層的輸入可能被 Google 用於改進產品(內容都是公開網頁,不含個資)。
+- **2026-11-27 補充:改用 Claude 判斷(使用者:「不能用 Claude 自己判斷嗎」)**:repo secret `CLAUDE_CODE_OAUTH_TOKEN`(使用者在自己電腦執行 `claude setup-token` 產生,走 Claude 訂閱)存在時,Actions 安裝 Claude Code 2.1.332,推播前用 `claude -p` 判斷與改寫;在空的暫存目錄執行、禁用所有工具、只跑 1 輪。優先序:Claude → Gemini → 規則版。只在有候選時才呼叫,用量小。已知風險:社群回報 setup-token 偶有 401、或 `-p` 被算成 API 計費,首次啟用要實測。

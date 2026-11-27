@@ -125,22 +125,50 @@ REFINE_PROMPT = """你是使用者的情報秘書。以下 JSON 是剛抓到的�
 """
 
 
-def refine(alerts: list[dict], names: dict[str, str]) -> list[dict]:
-    """Optional: with GEMINI_API_KEY set, a model drops weak deals and rewrites each one as a short
-    Traditional Chinese line. Any failure falls back to the rule-based alerts unchanged."""
-    key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not alerts or not key:
-        return alerts
+def _ask_claude(prompt: str) -> str:
+    """Claude Code headless with the owner's subscription token (CLAUDE_CODE_OAUTH_TOKEN); no tools allowed."""
+    import subprocess
+    import tempfile
+    no_tools = ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebFetch", "WebSearch", "NotebookEdit", "Task"]
+    with tempfile.TemporaryDirectory() as empty:  # nothing to read even if the scraped text says otherwise
+        r = subprocess.run(["claude", "-p", "--output-format", "json", "--max-turns", "1",
+                            "--disallowedTools", *no_tools],
+                           input=prompt, capture_output=True, text=True, timeout=180, cwd=empty)
+    if r.returncode != 0:
+        raise RuntimeError(f"claude exit {r.returncode}")
+    return json.loads(r.stdout)["result"]
+
+
+def _ask_gemini(prompt: str, key: str) -> str:
+    import requests
     model = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
+    r = requests.post(GEMINI.format(model=model), headers={"x-goog-api-key": key}, timeout=40, json={
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
+    r.raise_for_status()
+    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+
+
+def _json_list(text: str) -> list:
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.strip("`").split("\n", 1)[-1]
+    return json.loads(text[text.find("["):text.rfind("]") + 1])
+
+
+def refine(alerts: list[dict], names: dict[str, str]) -> list[dict]:
+    """Optional: a model drops weak deals and rewrites each one as a short Traditional Chinese line.
+    Claude (owner's subscription) if CLAUDE_CODE_OAUTH_TOKEN is set, else Gemini if GEMINI_API_KEY is set.
+    Any failure falls back to the rule-based alerts unchanged."""
+    claude = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "").strip()
+    gemini = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not alerts or not (claude or gemini):
+        return alerts
     cands = [{"id": a["id"], "source": names.get(a["source_id"], a["source_id"]), "text": a["snippet"][:400]}
              for a in alerts]
+    prompt = REFINE_PROMPT + json.dumps(cands, ensure_ascii=False)
     try:
-        import requests
-        r = requests.post(GEMINI.format(model=model), headers={"x-goog-api-key": key}, timeout=40, json={
-            "contents": [{"parts": [{"text": REFINE_PROMPT + json.dumps(cands, ensure_ascii=False)}]}],
-            "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
-        r.raise_for_status()
-        verdicts = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
+        verdicts = _json_list(_ask_claude(prompt) if claude else _ask_gemini(prompt, gemini))
         by_id = {v["id"]: v for v in verdicts if isinstance(v, dict) and "id" in v}
     except Exception as e:  # noqa: BLE001 - never block alerts on the optional model
         print(f"flash: refine skipped ({type(e).__name__})")
