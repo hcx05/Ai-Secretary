@@ -177,3 +177,14 @@ def test_rss_include_exclude_min_price():
     out = fetch_source({"id": "s", "type": "rss", "url": "u", "include_regex": r"\b(monitor|mouse|rtx ?\d{4})\b",
                         "exclude_regex": r"\blaptop\b", "min_price": 100}, lambda *a, **k: Resp(xml), NOW, {}, None, 14)
     assert [i.title for i in out["items"]] == ["LG 27in OLED Monitor $599"]
+
+
+def test_pagewatch_ignores_reordered_blocks():
+    from collector.sources.pagewatch import diff_summary
+    az = "Microsoft Azure About Azure Cloud platform for students Offers Free access to Azure App Services and Functions with $100 credit every year while you are a student"
+    dp = "Doppler About Doppler Secrets manager for developers Offers Team plan free for students including unlimited projects and environments while enrolled"
+    vi = "Visme About Visme Design tool for presentations and infographics Offers Premium plan free for students for one full year with all templates"
+    a, b = f"Offers {az} {dp} {vi}", f"Offers {dp} {vi} {az}"
+    assert diff_summary(a, b) == ""
+    c = b + " NEW: Kiro gives students 1000 free credits for Claude this month."
+    assert "Kiro gives students" in diff_summary(b, c)

@@ -8,16 +8,34 @@ from ..render import check_not_blocked, render_text
 KEEP_CHARS = 30000  # stored text per page, so the next change can be diffed
 
 
+K = 5  # shingle size for "is this text really new, or just moved?"
+
+
+def _shingles(words: list[str]) -> set[tuple[str, ...]]:
+    return {tuple(words[i:i + K]) for i in range(max(0, len(words) - K + 1))}
+
+
+def _novel(words: list[str], lo: int, hi: int, other: set) -> bool:
+    """True if the span words[lo:hi] (with a little context) is mostly text the other version never had.
+    Blocks that a page merely reorders (offer lists, carousels) are not novel."""
+    ctx = words[max(0, lo - K + 1):hi + K - 1]
+    sh = _shingles(ctx)
+    if not sh:
+        return bool(words[lo:hi])
+    return sum(1 for x in sh if x not in other) / len(sh) >= 0.5
+
+
 def diff_summary(old: str, new: str, limit: int = 600) -> str:
-    """Word-level diff: what was added / removed. Empty old text -> no diff available."""
+    """Word-level diff: what was added / removed, ignoring text that only moved. Empty old -> ""."""
     if not old:
         return ""
     a, b = old.split(), new.split()
+    sa, sb = _shingles(a), _shingles(b)
     added, removed = [], []
     for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
-        if op in ("insert", "replace"):
+        if op in ("insert", "replace") and _novel(b, j1, j2, sa):
             added.append(" ".join(b[j1:j2]))
-        if op in ("delete", "replace"):
+        if op in ("delete", "replace") and _novel(a, i1, i2, sb):
             removed.append(" ".join(a[i1:i2]))
     out = []
     if added:
