@@ -19,3 +19,8 @@
 ## 停用
 
 刪掉兩個 secrets 即可。
+
+## 選用:即時推播用 Gemini 潤稿
+1. 到 https://aistudio.google.com/apikey 建立 API key(免費層即可)。
+2. GitHub repo → Settings → Secrets and variables → Actions → New repository secret,名稱 `GEMINI_API_KEY`,貼上 key。
+3. 下次抓取時,即時推播會先經 Gemini 過濾弱優惠並改寫成繁中一句。沒設定也能用,只是文字是原文那一句。

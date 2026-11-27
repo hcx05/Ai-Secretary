@@ -40,10 +40,11 @@ jobs:
         run: python -m collector
       - name: Prune old data
         run: python -m collector.prune
-      - name: Instant alerts for time-limited offers (no-op without secrets)
+      - name: Instant alerts for big offers (no-op without secrets; Gemini refinement optional)
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python -m notify.flash || echo "flash failed, continuing"
       - name: Commit data
         env:
